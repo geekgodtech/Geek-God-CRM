@@ -651,7 +651,13 @@ Private Sub DeploySequentialPoolFonts(PoolDir As String)
 		Dim Copied As Int = 0
 		' Project currently ships a sequential pool of 33 fonts.
 		For i = 1 To 33
-			Dim fPadded As String = NumberFormat(i, 2, 0) & ".ttf"
+			Dim BaseNum As String
+			If i < 10 Then
+				BaseNum = "0" & i
+			Else
+				BaseNum = i
+			End If
+			Dim fPadded As String = BaseNum & ".ttf"
 			Dim fPlain As String = i & ".ttf"
 			Dim SourceName As String = ""
 			
@@ -1277,7 +1283,14 @@ Private Sub CheckAndRequestSystemPermissions
 	' Request "All Files Access" during first-run permission flow instead of waiting for scraper launch.
 	' Only auto-launch once during onboarding to avoid repeatedly forcing Settings on every startup.
 	If HasAllFilesAccess = False Then
-		Dim Prompted As Boolean = appSettings.GetDefault("AllFilesAccessPrompted", False)
+		Dim Prompted As Boolean = False
+		Dim PromptedRaw As Object = appSettings.GetDefault("AllFilesAccessPrompted", False)
+		If PromptedRaw Is Boolean Then
+			Prompted = PromptedRaw
+		Else If PromptedRaw Is String Then
+			Prompted = (PromptedRaw = "True")
+		End If
+		
 		If Prompted = False Then
 			RequestManageExternalStorage
 			appSettings.Put("AllFilesAccessPrompted", True)
