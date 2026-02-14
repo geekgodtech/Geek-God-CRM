@@ -1,0 +1,528 @@
+﻿Build1=Default,b4a.b4a.thegeekgodcrm
+Build2=MultiDex,Geek.God.CRM.App,MultiDex
+File1=01.ttf
+File10=05.wav
+File100=25.ttf
+File101=25.wav
+File102=26.ttf
+File103=26.wav
+File104=27.ttf
+File105=27.wav
+File106=28.ttf
+File107=28.wav
+File108=29.ttf
+File109=29.wav
+File11=06.ttf
+File110=30.ttf
+File111=30.wav
+File112=31.ttf
+File113=31.wav
+File114=32.ttf
+File115=32.wav
+File116=33.ttf
+File117=33.wav
+File118=34.wav
+File119=35.wav
+File12=06.wav
+File120=36.wav
+File121=37.wav
+File122=38.wav
+File123=39.wav
+File124=40.wav
+File125=41.wav
+File126=42.wav
+File127=43.wav
+File128=44.wav
+File129=45.wav
+File13=07.ttf
+File130=46.wav
+File131=47.wav
+File132=48.wav
+File133=49.wav
+File134=50.wav
+File135=51.wav
+File136=52.wav
+File137=53.wav
+File138=54.wav
+File139=55.wav
+File14=07.wav
+File140=56.wav
+File141=57.wav
+File142=58.wav
+File143=59.wav
+File144=60.wav
+File145=61.wav
+File146=62.wav
+File147=63.wav
+File148=64.wav
+File149=65.wav
+File15=08.ttf
+File150=66.wav
+File151=67.wav
+File152=68.wav
+File153=69.wav
+File154=70.wav
+File155=71.wav
+File156=72.wav
+File157=73.wav
+File158=74.wav
+File159=75.wav
+File16=08.wav
+File160=76.wav
+File161=77.wav
+File162=78.wav
+File163=79.wav
+File164=80.wav
+File165=81.wav
+File166=82.wav
+File167=83.wav
+File168=84.wav
+File169=85.wav
+File17=09.ttf
+File170=86.wav
+File171=87.wav
+File172=88.wav
+File173=89.wav
+File174=90.wav
+File175=91.wav
+File176=92.wav
+File177=93.wav
+File178=94.wav
+File179=95.wav
+File18=09.wav
+File180=96.wav
+File181=97.wav
+File182=98.wav
+File183=99.wav
+File184=addnewclient - buttons.ttf
+File185=addnewclient - labels.ttf
+File186=addnewclient - title label.ttf
+File187=appointmentpage - name.ttf
+File188=closeout - buttons.ttf
+File189=closeout - labels.ttf
+File19=10.ttf
+File190=credentials.json
+File191=erin_bg.png
+File192=Geek God CRM.ico
+File193=geekgodcrm.mp4
+File194=googly.png
+File195=mainpage - buttons.ttf
+File196=mainpage - cardtext.ttf
+File197=mainpage - labels.ttf
+File198=mainpage - stats labels.ttf
+File199=MainPage.bal
+File2=01.wav
+File20=10.wav
+File200=mike_bg.png
+File201=orphans.zip
+File202=renamewavs.py
+File203=schedule button down position.png
+File204=schedule button up position.png
+File205=search - client group.ttf
+File206=search - control labels.ttf
+File207=search - makeapt.ttf
+File208=search - name.ttf
+File209=search - stats.ttf
+File21=100.wav
+File22=101.wav
+File23=102.wav
+File24=103.wav
+File25=104.wav
+File26=105.wav
+File27=106.wav
+File28=107.wav
+File29=108.wav
+File3=02.ttf
+File30=109.wav
+File31=11.ttf
+File32=11.wav
+File33=110.wav
+File34=111.wav
+File35=112.wav
+File36=113.wav
+File37=114.wav
+File38=115.wav
+File39=116.wav
+File4=02.wav
+File40=117.wav
+File41=118.wav
+File42=119.wav
+File43=12.ttf
+File44=12.wav
+File45=120.wav
+File46=121.wav
+File47=122.wav
+File48=123.wav
+File49=124.wav
+File5=03.ttf
+File50=125.wav
+File51=126.wav
+File52=127.wav
+File53=128.wav
+File54=129.wav
+File55=13.ttf
+File56=13.wav
+File57=130.wav
+File58=131.wav
+File59=132.wav
+File6=03.wav
+File60=133.wav
+File61=134.wav
+File62=135.wav
+File63=136.wav
+File64=137.wav
+File65=138.wav
+File66=139.wav
+File67=14.ttf
+File68=14.wav
+File69=140.wav
+File7=04.ttf
+File70=141.wav
+File71=142.wav
+File72=143.wav
+File73=144.wav
+File74=145.wav
+File75=146.wav
+File76=147.wav
+File77=148.wav
+File78=149.wav
+File79=15.ttf
+File8=04.wav
+File80=15.wav
+File81=150.wav
+File82=16.ttf
+File83=16.wav
+File84=17.ttf
+File85=17.wav
+File86=18.ttf
+File87=18.wav
+File88=19.ttf
+File89=19.wav
+File9=05.ttf
+File90=20.ttf
+File91=20.wav
+File92=21.ttf
+File93=21.wav
+File94=22.ttf
+File95=22.wav
+File96=23.ttf
+File97=23.wav
+File98=24.ttf
+File99=24.wav
+FileGroup1=Default Group
+FileGroup10=Default Group
+FileGroup100=Default Group
+FileGroup101=Default Group
+FileGroup102=Default Group
+FileGroup103=Default Group
+FileGroup104=Default Group
+FileGroup105=Default Group
+FileGroup106=Default Group
+FileGroup107=Default Group
+FileGroup108=Default Group
+FileGroup109=Default Group
+FileGroup11=Default Group
+FileGroup110=Default Group
+FileGroup111=Default Group
+FileGroup112=Default Group
+FileGroup113=Default Group
+FileGroup114=Default Group
+FileGroup115=Default Group
+FileGroup116=Default Group
+FileGroup117=Default Group
+FileGroup118=Default Group
+FileGroup119=Default Group
+FileGroup12=Default Group
+FileGroup120=Default Group
+FileGroup121=Default Group
+FileGroup122=Default Group
+FileGroup123=Default Group
+FileGroup124=Default Group
+FileGroup125=Default Group
+FileGroup126=Default Group
+FileGroup127=Default Group
+FileGroup128=Default Group
+FileGroup129=Default Group
+FileGroup13=Default Group
+FileGroup130=Default Group
+FileGroup131=Default Group
+FileGroup132=Default Group
+FileGroup133=Default Group
+FileGroup134=Default Group
+FileGroup135=Default Group
+FileGroup136=Default Group
+FileGroup137=Default Group
+FileGroup138=Default Group
+FileGroup139=Default Group
+FileGroup14=Default Group
+FileGroup140=Default Group
+FileGroup141=Default Group
+FileGroup142=Default Group
+FileGroup143=Default Group
+FileGroup144=Default Group
+FileGroup145=Default Group
+FileGroup146=Default Group
+FileGroup147=Default Group
+FileGroup148=Default Group
+FileGroup149=Default Group
+FileGroup15=Default Group
+FileGroup150=Default Group
+FileGroup151=Default Group
+FileGroup152=Default Group
+FileGroup153=Default Group
+FileGroup154=Default Group
+FileGroup155=Default Group
+FileGroup156=Default Group
+FileGroup157=Default Group
+FileGroup158=Default Group
+FileGroup159=Default Group
+FileGroup16=Default Group
+FileGroup160=Default Group
+FileGroup161=Default Group
+FileGroup162=Default Group
+FileGroup163=Default Group
+FileGroup164=Default Group
+FileGroup165=Default Group
+FileGroup166=Default Group
+FileGroup167=Default Group
+FileGroup168=Default Group
+FileGroup169=Default Group
+FileGroup17=Default Group
+FileGroup170=Default Group
+FileGroup171=Default Group
+FileGroup172=Default Group
+FileGroup173=Default Group
+FileGroup174=Default Group
+FileGroup175=Default Group
+FileGroup176=Default Group
+FileGroup177=Default Group
+FileGroup178=Default Group
+FileGroup179=Default Group
+FileGroup18=Default Group
+FileGroup180=Default Group
+FileGroup181=Default Group
+FileGroup182=Default Group
+FileGroup183=Default Group
+FileGroup184=Default Group
+FileGroup185=Default Group
+FileGroup186=Default Group
+FileGroup187=Default Group
+FileGroup188=Default Group
+FileGroup189=Default Group
+FileGroup19=Default Group
+FileGroup190=Default Group
+FileGroup191=Default Group
+FileGroup192=Default Group
+FileGroup193=Default Group
+FileGroup194=Default Group
+FileGroup195=Default Group
+FileGroup196=Default Group
+FileGroup197=Default Group
+FileGroup198=Default Group
+FileGroup199=Default Group
+FileGroup2=Default Group
+FileGroup20=Default Group
+FileGroup200=Default Group
+FileGroup201=Default Group
+FileGroup202=Default Group
+FileGroup203=Default Group
+FileGroup204=Default Group
+FileGroup205=Default Group
+FileGroup206=Default Group
+FileGroup207=Default Group
+FileGroup208=Default Group
+FileGroup209=Default Group
+FileGroup21=Default Group
+FileGroup22=Default Group
+FileGroup23=Default Group
+FileGroup24=Default Group
+FileGroup25=Default Group
+FileGroup26=Default Group
+FileGroup27=Default Group
+FileGroup28=Default Group
+FileGroup29=Default Group
+FileGroup3=Default Group
+FileGroup30=Default Group
+FileGroup31=Default Group
+FileGroup32=Default Group
+FileGroup33=Default Group
+FileGroup34=Default Group
+FileGroup35=Default Group
+FileGroup36=Default Group
+FileGroup37=Default Group
+FileGroup38=Default Group
+FileGroup39=Default Group
+FileGroup4=Default Group
+FileGroup40=Default Group
+FileGroup41=Default Group
+FileGroup42=Default Group
+FileGroup43=Default Group
+FileGroup44=Default Group
+FileGroup45=Default Group
+FileGroup46=Default Group
+FileGroup47=Default Group
+FileGroup48=Default Group
+FileGroup49=Default Group
+FileGroup5=Default Group
+FileGroup50=Default Group
+FileGroup51=Default Group
+FileGroup52=Default Group
+FileGroup53=Default Group
+FileGroup54=Default Group
+FileGroup55=Default Group
+FileGroup56=Default Group
+FileGroup57=Default Group
+FileGroup58=Default Group
+FileGroup59=Default Group
+FileGroup6=Default Group
+FileGroup60=Default Group
+FileGroup61=Default Group
+FileGroup62=Default Group
+FileGroup63=Default Group
+FileGroup64=Default Group
+FileGroup65=Default Group
+FileGroup66=Default Group
+FileGroup67=Default Group
+FileGroup68=Default Group
+FileGroup69=Default Group
+FileGroup7=Default Group
+FileGroup70=Default Group
+FileGroup71=Default Group
+FileGroup72=Default Group
+FileGroup73=Default Group
+FileGroup74=Default Group
+FileGroup75=Default Group
+FileGroup76=Default Group
+FileGroup77=Default Group
+FileGroup78=Default Group
+FileGroup79=Default Group
+FileGroup8=Default Group
+FileGroup80=Default Group
+FileGroup81=Default Group
+FileGroup82=Default Group
+FileGroup83=Default Group
+FileGroup84=Default Group
+FileGroup85=Default Group
+FileGroup86=Default Group
+FileGroup87=Default Group
+FileGroup88=Default Group
+FileGroup89=Default Group
+FileGroup9=Default Group
+FileGroup90=Default Group
+FileGroup91=Default Group
+FileGroup92=Default Group
+FileGroup93=Default Group
+FileGroup94=Default Group
+FileGroup95=Default Group
+FileGroup96=Default Group
+FileGroup97=Default Group
+FileGroup98=Default Group
+FileGroup99=Default Group
+Group=Default Group
+Library1=b4xpages
+Library10=phone
+Library11=runtimepermissions
+Library12=xui views
+Library13=audio
+Library2=core
+Library3=dateutils
+Library4=gps
+Library5=ime
+Library6=javaobject
+Library7=json
+Library8=okhttp
+Library9=okhttputils2
+ManifestCode='--------------------------------------------------------------------------------~\n~' 1. SDK Versions & Permissions~\n~'--------------------------------------------------------------------------------~\n~' --- Part A: Raw XML Text ---~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="24" android:targetSdkVersion="35"/>~\n~<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />~\n~<uses-permission android:name="android.permission.SEND_SMS" />~\n~<uses-permission android:name="android.permission.CALL_PHONE" />~\n~<supports-screens ~\n~    android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:xlargeScreens="true"~\n~    android:anyDensity="true"/>~\n~)~\n~~\n~' --- Part B: B4A Commands ---~\n~AddPermission(android.permission.FOREGROUND_SERVICE)~\n~AddPermission(android.permission.FOREGROUND_SERVICE_DATA_SYNC)~\n~SetServiceAttribute(starter, android:foregroundServiceType, "dataSync")~\n~~\n~'--------------------------------------------------------------------------------~\n~' 2. App Attributes~\n~'--------------------------------------------------------------------------------~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~~\n~'--------------------------------------------------------------------------------~\n~' 3. FOLDABLE FIX (CRITICAL)~\n~' This tells Android: "Do NOT kill my app when the screen opens. Let me handle the resize."~\n~'--------------------------------------------------------------------------------~\n~SetActivityAttribute(Main, android:resizeableActivity, "true")~\n~SetActivityAttribute(Main, android:configChanges, "orientation|screenSize|smallestScreenSize|screenLayout|keyboard|keyboardHidden|navigation")~\n~~\n~'--------------------------------------------------------------------------------~\n~' 4. Google OAuth Redirect (FIXED SCHEME)~\n~' This matches the Client ID in your code.~\n~'--------------------------------------------------------------------------------~\n~AddActivityText(Main, ~\n~<intent-filter> ~\n~    <action android:name="android.intent.action.VIEW" /> ~\n~    <category android:name="android.intent.category.DEFAULT" /> ~\n~    <category android:name="android.intent.category.BROWSABLE" /> ~\n~    <data android:scheme="com.googleusercontent.apps.1077575612876-0lgv0dhcu1956b75n80gfs9t0djn2a5c" android:pathPrefix="/oauth2redirect" /> ~\n~</intent-filter>)
+Module1=AppointmentPage
+Module2=B4XMainPage
+Module3=CloseOut
+Module4=CreateClientPage
+Module5=GoogleOAuth2
+Module6=SearchPage
+Module7=Starter
+Module8=ViewSchedulePage
+NumberOfFiles=209
+NumberOfLibraries=13
+NumberOfModules=8
+Version=13.4
+@EndOfDesignText@
+'//<START-Main-S01>
+#Region  Project Attributes 
+	#ApplicationLabel: Geek God CRM
+	#VersionCode: 1
+	#VersionName: 1.00
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: False
+	
+	'DEPENDENCY CONFIGURATION FOR FOLDABLE SUPPORT
+	'Use "+" to accept any installed version
+	#AdditionalJar: androidx.window:window-java
+	#AdditionalJar: androidx.window:window
+	
+	'Core Android Infrastructure
+	#AdditionalJar: androidx.core:core
+	#AdditionalJar: androidx.collection:collection
+	#AdditionalJar: androidx.annotation:annotation
+	#AdditionalJar: androidx.lifecycle:lifecycle-runtime
+	
+	'Kotlin Runtime Environment
+	#AdditionalJar: org.jetbrains.kotlin:kotlin-stdlib
+	#AdditionalJar: org.jetbrains.kotlin:kotlin-stdlib-jdk8
+	#AdditionalJar: org.jetbrains.kotlinx:kotlinx-coroutines-android
+	#AdditionalJar: org.jetbrains.kotlinx:kotlinx-coroutines-core
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: True
+	#IncludeTitle: False
+	#BridgeLogger: True
+#End Region
+
+Sub Process_Globals
+	Public ActionBarHomeClicked As Boolean
+End Sub
+
+Sub Globals
+	'Fix: pm must be declared here to persist across lifecycle events
+	Private pm As B4XPagesManager
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	pm.Initialize(Activity)
+End Sub
+
+Sub Activity_Resume
+	pm.Activity_Resume
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+	pm.Activity_Pause
+End Sub
+
+Sub Activity_PermissionResult (Permission As String, Result As Boolean)
+	B4XPages.Delegate.Activity_PermissionResult(Permission, Result)
+End Sub
+
+
+
+Sub Activity_ActionBarHomeClick
+	ActionBarHomeClicked = True
+	B4XPages.Delegate.Activity_ActionBarHomeClick
+	ActionBarHomeClicked = False
+End Sub
+
+Sub Activity_KeyPress (KeyCode As Int) As Boolean
+	Return B4XPages.Delegate.Activity_KeyPress(KeyCode)
+End Sub
+
+'Total Subroutines in Section S01 recorded last edit: 8
+'Total Subroutines in Section S01 recorded after this edit - 9
+'Total Subroutines added in this edit - 1
+'Total Subroutines removed in this edit - 0
+'Difference between edits- +1
+'Total Discrepancies - 0
+'Total lines of code in this section prior to edit - 65
+'Total lines of code in this section now - 66
+'Lines added / Subtracted in this edit - +1
+'//<END-Main-S01>

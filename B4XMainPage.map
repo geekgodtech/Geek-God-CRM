@@ -1,0 +1,1723 @@
+B4XMainPage.bas MAP of declarations, subroutines, and calls: 
+
+
+' =========================================================
+' ===           SECTION S01: MASTER BREAKDOWN           ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 5) ---
+' Sub Initialize 
+' Sub Class_Globals 
+' Sub B4XPage_Created (Root1 As B4XView) 
+' Sub ResumeAppStartup 
+' Sub B4XPage_Resize (Width As Int, Height As Int)
+
+' --- VARIABLE DECLARATIONS (Total: 83) ---
+' Root 
+' xui 
+' appSettings 
+' vvSplash (Removed logic, kept var if needed later)
+' pnlSplash 
+' SplashComplete 
+' HasRunOnce 
+' PendingSlot 
+' RecentlyUpdated 
+' Panel1 
+' lblStatus 
+' lblDayDate 
+' SensorShake 
+' LastShakeTime 
+' IsTorchOn 
+' btnSearch 
+' btnCreateClient 
+' btnScrape 
+' btnViewApt 
+' btnCloseout 
+' btnMakeApt 
+' btnLogin 
+' pnlStats 
+' lblTotalAptsGod 
+' lblTotalAptsGoddess 
+' lblGodCollected 
+' lblGoddessCollected 
+' lblTotalCollected 
+' lblAppsGodNum 
+' lblAppsGoddessNum 
+' lblGodCollectedNum 
+' lblGoddessCollectedNum 
+' lblTotalCollectedNum 
+' spnChose 
+' lblSelectGod 
+' lstTodayApts 
+' StatusRefreshTimer 
+' OAuth2 
+' CLIENT_ID 
+' SOURCE_ID 
+' searchScreen 
+' appointmentScreen 
+' ViewScheduleScreen 
+' CloseOutScreen 
+' clientCreator 
+' TempProfile 
+' LedgerQueue 
+' CurrentLedgerID 
+' CurrentSearchQuery 
+' IssuesHistory 
+' gps 
+' rp 
+' CurrentLocation 
+' GeocodedLocations 
+' FailedGeocodes 
+' ActiveAppointmentID 
+' ActiveArrivalTime 
+' ActiveJobMap 
+' JobTimer 
+' COLOR_PENDING 
+' COLOR_ACTIVE 
+' COLOR_CLOSED 
+' FuzzyCandidates 
+' ScrapeMap 
+' ScrapeQueue 
+' VMPlayer 
+' ScrapedApptIssue 
+' ime 
+' LastDashboardItems 
+' LAYOUT_THRESHOLD 
+' ExpensePanel 
+' ExpensePhotoPath 
+' ExtractedDate 
+' ExtractedTime 
+' ExpenseDateLabel 
+' ExpenseCategorySpinner 
+' ExpenseAmount 
+' ExpenseNotes 
+' fontLabels 
+' fontButtons 
+' fontStats 
+' fontCardText 
+' HolidayBanner 
+' ArrivalThresholdMeters 
+' SP 
+' SoundIDs 
+' CurrentUser 
+' FoldDetector 
+' LastFoldState 
+' LastOrientation 
+' ScreenW 
+' ScreenH 
+' VidHeight 
+' TopPos 
+
+' --- SUBROUTINE CALLS (Total: 48) ---
+' Log (Initialize) 
+' OAuth2.Initialize 
+' Log (Initialize completion) 
+' ime.Initialize 
+' ime.AddHeightChangedEvent 
+' gps.Initialize 
+' GeocodedLocations.Initialize 
+' FailedGeocodes.Initialize 
+' FuzzyCandidates.Initialize 
+' ActiveJobMap.Initialize 
+' RecentlyUpdated.Initialize 
+' LastDashboardItems.Initialize 
+' ScrapeMap.Initialize 
+' ScrapeQueue.Initialize 
+' VMPlayer.Initialize 
+' PendingSlot.Initialize 
+' HolidayBanner.Initialize 
+' SP.Initialize 
+' SoundIDs.Initialize 
+' ResumeAppStartup (Created branch) 
+' GetDeviceLayoutValues.Width 
+' GetDeviceLayoutValues.Height 
+' Root.LoadLayout 
+' JobTimer.Initialize 
+' StatusRefreshTimer.Initialize 
+' spnChose.Clear 
+' spnChose.Add 
+' CheckSettings 
+' CheckAndRequestSystemPermissions 
+' searchScreen.Initialize 
+' B4XPages.AddPage 
+' appointmentScreen.Initialize 
+' ViewScheduleScreen.Initialize 
+' CloseOutScreen.Initialize 
+' clientCreator.Initialize 
+' SensorShake.Initialize 
+' SetupFontSystem 
+' LoadSounds (Async Sound Loader)
+' SetInitialStatus 
+' DetectUserIdentity 
+' Log (OAuth re-init check) 
+' OAuth2.GetAccessToken 
+' StartFoldListener (Java Reflection)
+' B4XPage_Resize
+
+' =========================================================
+' ===           SECTION S02: MASTER BREAKDOWN           ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 19) ---
+' Sub LoadFontFromFile(DirPath As String, FileName As String) As Typeface
+' Sub SetupFontSystem
+' Sub ApplyFontsToUI
+' Sub DetectUserIdentity
+' Sub ApplyListBackground(User As String)
+' Sub SetInitialStatus
+' Sub CheckOAuth(Intent As Intent)
+' Sub OAuth2_AccessTokenAvailable(Success As Boolean, Token As String)
+' Sub CheckHolidayTheme
+' Sub ThemeHoliday(Text As String, BgColor As Int, TxtColor As Int)
+' Sub StatusRefreshTimer_Tick
+' Sub CheckSettings
+' Sub GetCurrentUser
+' Sub CreateHolidayBannerPanel(ParentWidth As Int) As B4XView
+' Sub UpdateStatsPanel(MikeCollected As Double, ErinCollected As Double)
+' Sub RefreshStats
+' Sub B4XPage_Disappear
+' Sub StartFoldListener
+' Sub StopFoldListener
+
+' --- VARIABLE DECLARATIONS (Total: 48) ---
+' jo (JavaObject)
+' DirPath (String - Parameter)
+' FileName (String - Parameter)
+' Path (String)
+' TF (Object)
+' FontDir (String)
+' buttons (B4XView Array)
+' v (B4XView - For Each loop)
+' btn (Button)
+' statLabels (B4XView Array)
+' sv (B4XView - For Each loop)
+' W (Int)
+' H (Int)
+' DetectedUser (String)
+' IsErin (Boolean)
+' IsMikeOpen (Boolean)
+' IsMikeClosed (Boolean)
+' User (String - Parameter)
+' CurrentUser (Sync Global)
+' pnlList (B4XView)
+' v0 (B4XView)
+' bgFile (String)
+' bmp (Bitmap)
+' ivBG (ImageView)
+' DeviceWidth (Int)
+' DeviceHeight (Int)
+' IsSmallScreen (Boolean)
+' HeaderBottom (Int)
+' ListTop (Int)
+' PanelW (Int)
+' PanelH (Int)
+' OrigW (Float)
+' OrigH (Float)
+' ScaledW (Int)
+' ScaledH (Int)
+' TopY (Int)
+' Month (Int)
+' Day (Int)
+' dow (Int)
+' Text (String - Parameter)
+' BgColor (Int - Parameter)
+' TxtColor (Int - Parameter)
+' Intent (Intent - Parameter)
+' Success (Boolean - Parameter)
+' Token (String - Parameter)
+' Month (Int - Local)
+' Day (Int - Local)
+' dow (Int - Local)
+
+' --- SUBROUTINE CALLS (Total: 58) ---
+' jo.InitializeStatic
+' File.Combine
+' File.Exists
+' jo.RunMethod
+' Log
+' Typeface.LoadFromAssets
+' File.MakeDir
+' File.Copy
+' LoadFontFromFile
+' ApplyFontsToUI
+' btn.Invalidate
+' lblStatus.As(Label)
+' lblDayDate.As(Label)
+' lblSelectGod.As(Label)
+' sv.As(Label)
+' GetDeviceLayoutValues.Width
+' GetDeviceLayoutValues.Height
+' Abs
+' appSettings.Put
+' File.WriteMap
+' spnChose.SelectedIndex
+' ApplyListBackground
+' lstTodayApts.AsView
+' pnlList.NumberOfViews
+' pnlList.GetView
+' v0.RemoveViewFromParent
+' LoadBitmap
+' ivBG.Initialize
+' Max
+' pnlList.AddView
+' ivBG.SendToBack
+' ivBG.As(B4XView).Alpha
+' DateTime.Date
+' CheckHolidayTheme
+' btnCloseout.Enabled
+' OAuth2.CallFromResume
+' CheckContactGroups
+' RefreshDashboard
+' xui.MsgboxAsync
+' DateTime.GetMonth
+' DateTime.GetDayOfMonth
+' DateTime.GetDayOfWeek
+' ThemeHoliday
+' HolidayBanner.Initialize
+' HolidayBanner.Clear
+' HolidayBanner.Put
+' lblStatus.As(View).Invalidate
+
+' =========================================================
+' ===           SECTION S03: MASTER BREAKDOWN           ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 8) ---
+' Sub CheckAndRequestSystemPermissions 
+' Sub Activity_PermissionResult (Permission As String, Result As Boolean) 
+' Sub B4XPage_ActivityResult (RequestCode As Int, ResultCode As Int, Data As Intent) 
+' Sub B4XPage_Appear
+' Sub FoldListener_FoldStateChanged(State As String, Orientation As String, IsSeparating As Boolean) 
+' Sub AdjustLayout(Width As Int, Height As Int) 
+' Sub CompactStatsPanel(PnlW As Int) 
+' Sub ExpandedStatsPanel(PnlW As Int, PnlH As Int) 
+
+' --- VARIABLE DECLARATIONS (Total: 43) ---
+' Permissions (String Array) 
+' Missing (Boolean) 
+' p (String) 
+' Permission (String - Parameter) 
+' Result (Boolean - Parameter)
+' RequestCode (Int - Parameter) 
+' ResultCode (Int - Parameter) 
+' Data (Intent - Parameter) 
+' bmp (Bitmap) 
+' State (String - Parameter) 
+' Orientation (String - Parameter) 
+' IsSeparating (Boolean - Parameter) 
+' Width (Int - Parameter) 
+' Height (Int - Parameter) 
+' HeaderBottom (Int) 
+' lv (B4XView) 
+' UseCompactMode (Boolean) 
+' MidPoint (Int) 
+' BtnW (Int) 
+' BtnH (Int) 
+' StatusWidth (Int) 
+' StatsLeft (Int) 
+' StatsWidth (Int) 
+' ListTop (Int) 
+' ButtonsWidth (Int) 
+' PnlW (Int - Parameter) 
+' RowH (Int) 
+' TopY (Int) 
+' Gap (Int) 
+' LabelWidth (Int) 
+' ValueLeft (Int) 
+' ValueWidth (Int) 
+' PnlH (Int - Parameter) 
+' AvailHeight (Int) 
+' Out (OutputStream) 
+' LastSlash (Int) 
+' Dir (String) 
+' FileName (String) 
+' bytes (Byte Array) 
+' su (StringUtils) 
+' base64 (String) 
+' json (JSONGenerator) 
+' m (Map) 
+
+' --- SUBROUTINE CALLS (Total: 62) ---
+' rp.Check 
+' rp.CheckAndRequest 
+' Wait For B4XPage_PermissionResult 
+' gps.Start 
+' SetupFontSystem 
+' Log 
+' StartFoldListener (On Appear)
+' StartGestures (On Appear)
+' OAuth2.CallFromResume
+' Data.IsInitialized 
+' Data.HasExtra 
+' Data.GetExtra 
+' SaveBitmapToTemp 
+' File.Exists 
+' ShowExpenseUI 
+' ProcessReceiptOCR 
+' xui.MsgboxAsync 
+' B4XPage_Resize 
+' Root.IsInitialized 
+' lstTodayApts.AsView 
+' lv.RemoveViewFromParent 
+' Root.AddView 
+' btnSearch.SetLayoutAnimated 
+' btnCreateClient.SetLayoutAnimated 
+' btnScrape.SetLayoutAnimated 
+' btnViewApt.SetLayoutAnimated 
+' btnCloseout.SetLayoutAnimated 
+' btnMakeApt.SetLayoutAnimated 
+' lblDayDate.SetLayoutAnimated 
+' lblDayDate.SetTextAlignment 
+' lblStatus.SetLayoutAnimated 
+' lblStatus.SetTextAlignment 
+' pnlStats.SetLayoutAnimated 
+' CompactStatsPanel 
+' ExpandedStatsPanel 
+' lstTodayApts.Base_Resize 
+' BuildDashboardList 
+' lblTotalAptsGod.SetLayoutAnimated 
+' lblAppsGodNum.SetLayoutAnimated 
+' lblTotalAptsGoddess.SetLayoutAnimated 
+' lblAppsGoddessNum.SetLayoutAnimated 
+' lblGodCollected.SetLayoutAnimated 
+' lblGodCollectedNum.SetLayoutAnimated 
+' lblGoddessCollected.SetLayoutAnimated 
+' lblGoddessCollectedNum.SetLayoutAnimated 
+' lblTotalCollected.SetLayoutAnimated 
+' lblTotalCollectedNum.SetLayoutAnimated 
+' File.OpenOutput 
+' bmp.WriteToStream 
+' Out.Close 
+' File.Combine 
+' Path.LastIndexOf 
+' Path.SubString2 
+' Path.SubString 
+' File.ReadBytes 
+' su.EncodeBase64 
+' CreateMap 
+' json.Initialize 
+' job.Initialize 
+' job.PostString
+
+' =========================================================
+' ===            SECTION S04: MASTER BREAKDOWN            ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 6) ---
+' Public Sub SetPendingSlot(SlotInfo As Map)
+' Public Sub CheckBookingState(Profile As Map)
+' Public Sub PerformSearch(Query As String)
+' Private Sub ParseDateString(DateStr As String) As Long
+' Sub SearchCalendarForDate(DateMs As Long)
+' Public Sub LaunchAppointmentView(Profile As Map)
+
+' --- VARIABLE DECLARATIONS (Total: 25) ---
+' SlotInfo (Map - Parameter)
+' Profile (Map - Parameter)
+' Query (String - Parameter)
+' DateMs (Long)
+' job (HttpJob)
+' su (StringUtils)
+' FinalURL (String)
+' DateStr (String - Parameter)
+' Formats (String Array)
+' fmt (String - For Each loop)
+' L (Long)
+' DateMs (Long - Parameter)
+' Year (Int)
+' Month (Int)
+' Day (Int)
+' StartTime (Long)
+' EndTime (Long)
+' TimeMin (String)
+' TimeMax (String)
+' Profile (Map - Parameter - LaunchAppointmentView)
+' DateParts (Int Array)
+' year (Int - OnDateSelected)
+' month (Int - OnDateSelected)
+' day (Int - OnDateSelected)
+' items (List)
+
+' --- SUBROUTINE CALLS (Total: 34) ---
+' Log
+' PendingSlot.IsInitialized
+' PendingSlot.Size
+' B4XPages.ShowPage
+' CallSub3 (BookAppointment)
+' PendingSlot.Clear
+' CallSub2 (LoadClientForAppt)
+' OAuth2.GetAccessToken
+' Query.ToLowerCase
+' Query.Trim
+' ParseDateString
+' SearchCalendarForDate
+' job.Initialize
+' su.EncodeUrl
+' job.Download
+' job.GetRequest.SetHeader
+' DateTime.DateParse
+' DateTime.GetYear
+' DateTime.GetMonth
+' DateTime.GetDayOfMonth
+' DateUtils.SetDateAndTime
+' CreateRFC3339
+' TimeMin.Replace
+' TimeMax.Replace
+' CallSub2 (OnDateSelected)
+' parser.Initialize
+' parser.NextObject
+' rootMap.ContainsKey
+' items.Initialize
+' xui.MsgboxAsync
+' Job.Release
+' Query.Contains
+' Query.Length
+' StringUtils.EncodeUrl
+
+' =========================================================
+' ===            SECTION S05: MASTER BREAKDOWN            ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 3) ---
+' Public Sub RefreshDashboard 
+' Sub HandleFetchDashboard(Job As HttpJob) 
+' Private Sub BuildDashboardList(Items As List, TargetWidth As Int) 
+
+' --- VARIABLE DECLARATIONS (Total: 73) ---
+' jobDash (HttpJob) 
+' StartOfDay (Long) 
+' EndOfDay (Long) 
+' TimeMin (String) 
+' TimeMax (String) 
+' Job (HttpJob - Parameter) 
+' parser (JSONParser) 
+' rootMap (Map) 
+' items (List) 
+' Items (List - Parameter) 
+' TargetWidth (Int - Parameter) 
+' ParentWidth (Int) 
+' IsSmallScreen (Boolean) 
+' HolidayPanel (B4XView) 
+' ApptCount (Int) 
+' MikeCount (Int) 
+' ErinCount (Int) 
+' p (B4XView - No Appts) 
+' lbl (Label) 
+' xlbl (B4XView) 
+' ev (Map - For Each loop) 
+' cId (String) 
+' SelectedIndex (Int) 
+' ShouldShow (Boolean) 
+' ApptID (String) 
+' isClosed (Boolean) 
+' RightStatusIcon (String) 
+' RightStatusColor (Int) 
+' RowBGColor (Int) 
+' ArrivalIcon (String) 
+' ArrivalColor (Int) 
+' ArrivalEnabled (Boolean) 
+' summary (String) 
+' desc (String) 
+' loc (String) 
+' startMap (Map) 
+' endMap (Map) 
+' dtStr (String) 
+' dtEndStr (String) 
+' DisplayTime (String) 
+' H (Int) 
+' TimeStart (String) 
+' HE (Int) 
+' TimeEnd (String) 
+' cName (String) 
+' cPhone (String) 
+' cIssue (String) 
+' i (Int) 
+' i2 (Int) 
+' RowHeight (Int) 
+' p (B4XView - Row) 
+' lblTime (Label) 
+' xTime (B4XView) 
+' lblNum (Label) 
+' xNum (B4XView) 
+' IconWidth (Int) 
+' CenterStart (Int) 
+' CenterWidth (Int) 
+' lblArrival (Label) 
+' xArrival (B4XView) 
+' DataMap (Map) 
+' lblName (Label) 
+' xName (B4XView) 
+' cs (CSBuilder) 
+' lblPhone (Label) 
+' xPhone (B4XView) 
+' cs2 (CSBuilder) 
+' lblAddr (Label) 
+' xAddr (B4XView) 
+' cs3 (CSBuilder) 
+' lblIssue (Label) 
+' xIssue (B4XView) 
+' lblStatRight (Label) 
+' xStatRight (B4XView) 
+' line (B4XView) 
+
+' --- SUBROUTINE CALLS (Total: 49) ---
+' RefreshDashboard (Self) 
+' lstTodayApts.Clear 
+' LastDashboardItems.Clear 
+' jobDash.Initialize 
+' DateUtils.SetDate 
+' DateTime.GetYear 
+' DateTime.GetMonth 
+' DateTime.GetDayOfMonth 
+' DateTime.Add 
+' CreateRFC3339 
+' jobDash.Download 
+' TimeMin.Replace 
+' TimeMax.Replace 
+' jobDash.GetRequest.SetHeader 
+' Log 
+' parser.Initialize 
+' parser.NextObject 
+' rootMap.ContainsKey 
+' rootMap.Get 
+' BuildDashboardList 
+' Job.Release 
+' CreateHolidayBannerPanel 
+' HolidayPanel.IsInitialized 
+' lstTodayApts.Add 
+' ApplyListBackground 
+' GetCurrentUser 
+' xui.CreatePanel 
+' p.SetLayoutAnimated 
+' lbl.Initialize 
+' xlbl.SetTextAlignment 
+' p.AddView 
+' ev.GetDefault 
+' ev.Get 
+' ParseIsoToLocalHour 
+' FormatPhone 
+' FormatAudioTime 
+' summary.IndexOf 
+' summary.SubString2 
+' desc.IndexOf 
+' desc.SubString2 
+' desc.IndexOf2 
+' CleanAddress 
+' CSBuilder.Initialize 
+' cs.Append 
+' cs.PopAll 
+' CreateMap 
+' lstTodayApts.Base_Resize 
+' NumberFormat 
+' lblStatRight.Typeface
+
+' =========================================================
+' ===            SECTION S06: MASTER BREAKDOWN            ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 9) ---
+' Public Sub CheckContactGroups
+' Sub HandleListGroups(Job As HttpJob)
+' Sub CreateContactGroup(GroupName As String)
+' Private Sub StartScrapeProcess
+' Private Sub HasAllFilesAccess As Boolean
+' Private Sub RequestManageExternalStorage
+' Private Sub ParseEmlFile(Dir As String, FName As String)
+' Private Sub IsClientNameValid(RawName As String) As Boolean
+' Public Sub ProcessNextScrapeItem
+
+' --- VARIABLE DECLARATIONS (Total: 58) ---
+' job (HttpJob)
+' parser (JSONParser)
+' jsonRoot (Map)
+' groupsList (List)
+' HasClient (Boolean)
+' HasPreferred (Boolean)
+' HasBlacklisted (Boolean)
+' g (Map - For Each loop)
+' gName (String)
+' gResource (String)
+' GroupName (String - Parameter)
+' m (Map)
+' json (JSONGenerator)
+' VMRoot (String)
+' MResult (Int)
+' Files (List)
+' FName (String - For Each loop)
+' PhoneKey (String - For Each loop)
+' p (Phone)
+' jo (JavaObject)
+' in (Intent)
+' Dir (String - Parameter)
+' Content (String)
+' FromNum (String)
+' CleanTranscript (String)
+' mPhone (Matcher)
+' mTrans (Matcher)
+' ScrapeName1 (String)
+' ScrapeName2 (String)
+' mName (Matcher)
+' PotentialName (String)
+' mName2 (Matcher)
+' PotentialName2 (String)
+' ScrapeIssue (String)
+' lCaseTrans (String)
+' TimeStamp (Long)
+' DateStr (String)
+' FullPath (String)
+' Existing (Map)
+' sb (StringBuilder)
+' NewMap (Map)
+' RawName (String - Parameter)
+' Lower (String)
+' parts (String Array)
+' NextItem (Map)
+' Raw (String - Parameter)
+' cleaned (String)
+
+' --- SUBROUTINE CALLS (Total: 65) ---
+' CheckContactGroups
+' job.Initialize
+' job.Download
+' job.GetRequest.SetHeader
+' parser.Initialize
+' parser.NextObject
+' jsonRoot.ContainsKey
+' jsonRoot.Get
+' CreateContactGroup
+' json.Initialize
+' job.PostString
+' job.GetRequest.SetContentType
+' StartScrapeProcess
+' ProgressDialogHide
+' Msgbox2Async
+' RequestManageExternalStorage
+' File.Exists
+' xui.MsgboxAsync
+' ScrapeMap.Initialize
+' ScrapeQueue.Initialize
+' File.ListFiles
+' ProgressDialogShow
+' Sleep
+' ParseEmlFile
+' ScrapeMap.Keys
+' ScrapeMap.Get
+' ScrapeQueue.Add
+' ProcessNextScrapeItem
+' jo.InitializeStatic
+' jo.RunMethod
+' StartActivity
+' File.ReadString
+' Regex.Matcher
+' mPhone.Find
+' mPhone.Group
+' FormatPhone
+' mTrans.Find
+' mTrans.Group
+' IsClientNameValid
+' CleanTranscript.ToLowerCase
+' File.LastModified
+' DateTime.Date
+' DateTime.Time
+' File.Combine
+' sb.Append
+' NewMap.Initialize
+' sb.Initialize
+' RawName.ToLowerCase
+' RawName.StartsWith
+' Regex.Split
+' ScrapeQueue.RemoveAt
+' RefreshDashboard
+' ShowScrapeManualEntry
+' Raw.Replace
+' Raw.SubString
+' NumberFormat
+
+' =========================================================
+' ===            SECTION S07: MASTER BREAKDOWN            ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 20) ---
+' Sub btnCloseout_LongClick
+' Private Sub TakeExpensePhoto
+' Sub StartActivityForResult(i As Intent)
+' Sub SaveBitmapToTemp(bmp As Bitmap)
+' Private Sub ShowExpenseUI
+' Private Sub ProcessReceiptOCR(Path As String)
+' Sub HandleVisionOCR(Job As HttpJob)
+' Sub btnSaveExpense_Click
+' Sub UploadReceiptImage
+' Sub HandleUploadReceipt(Job As HttpJob)
+' Sub AppendExpenseToSheet(ImgLink As String)
+' Sub HandleAppendExpense(Job As HttpJob)
+' Sub btnCloseExpense_Click
+' Private Sub CreateLabel(Txt As String) As Label
+' Private Sub CreateEditText(Hint As String) As EditText
+' Private Sub CreateSpinner As Spinner
+' Private Sub GetDayName(Ticks As Long) As String
+' Public Sub SubmitCloseOut(Container As List)
+' Private Sub CloseOut_Helper_Step1(Container As List)
+' Sub HandleSearchForID(Job As HttpJob)
+
+' --- VARIABLE DECLARATIONS (Total: 71) ---
+' User (String)
+' i (Intent)
+' jo (JavaObject)
+' bmp (Bitmap - Parameter)
+' Out (OutputStream)
+' IsLandscape (Boolean)
+' imgReceipt (ImageView)
+' xImg (B4XView)
+' pnlForm (B4XView)
+' FormW (Int)
+' ImgH (Int)
+' TopY (Int)
+' btnSave (Button)
+' btnClose (Button)
+' Path (String - Parameter)
+' LastSlash (Int)
+' Dir (String)
+' FileName (String)
+' bytes (Byte Array)
+' su (StringUtils)
+' base64 (String)
+' json (JSONGenerator)
+' m (Map)
+' Job (HttpJob - Parameter)
+' parser (JSONParser)
+' rootMap (Map)
+' responses (List)
+' fullText (String)
+' resp (Map)
+' MaxAmount (Double)
+' mAmt (Matcher)
+' s (String)
+' v (Double)
+' DatePattern (String)
+' mDate (Matcher)
+' TimePattern (String)
+' mTime (Matcher)
+' FileID (String)
+' WebLink (String)
+' ImgLink (String - Parameter)
+' d (String)
+' t (String)
+' dayName (String)
+' cat (String)
+' nots (String)
+' amt (String)
+' RowData (List)
+' valRange (Map)
+' SpreadsheetID (String)
+' Txt (String - Parameter)
+' l (Label)
+' Hint (String - Parameter)
+' e (EditText)
+' s (Spinner)
+' Ticks (Long - Parameter)
+' oldF (String)
+' Container (List - Parameter)
+' LedgerRow (List)
+' cName (String)
+' cPhone (String)
+' job (HttpJob)
+' ResourceName (String)
+' Etag (String)
+' results (List)
+' resItem (Map)
+' person (Map)
+' NewNotes (String)
+' NewGroupLabel (String)
+' TimeStamp (String)
+' FinalNote (String)
+' TargetGroupID (String)
+
+' --- SUBROUTINE CALLS (Total: 78) ---
+' Log
+' appSettings.GetDefault
+' TakeExpensePhoto
+' Msgbox2Async
+' GenerateSmartLedger
+' i.Initialize
+' File.Combine
+' StartActivityForResult
+' jo.RunMethod
+' File.OpenOutput
+' bmp.WriteToStream
+' Out.Close
+' xui.CreatePanel
+' Root.AddView
+' imgReceipt.Initialize
+' xImg.SetBitmap
+' xui.LoadBitmap
+' xImg.SetLayoutAnimated
+' pnlForm.SetLayoutAnimated
+' CreateLabel
+' pnlForm.AddView
+' CreateSpinner
+' ExpenseCategorySpinner.AddAll
+' CreateEditText
+' btnSave.Initialize
+' btnClose.Initialize
+' ProgressDialogShow
+' Path.LastIndexOf
+' Path.SubString2
+' Path.SubString
+' File.ReadBytes
+' su.EncodeBase64
+' CreateMap
+' json.Initialize
+' job.Initialize
+' job.PostString
+' job.GetRequest.SetHeader
+' job.GetRequest.SetContentType
+' ProgressDialogHide
+' parser.Initialize
+' parser.NextObject
+' responses.Get
+' resp.ContainsKey
+' Regex.Matcher
+' mAmt.Find
+' IsNumber
+' NumberFormat2
+' mDate.Find
+' mTime.Find
+' ToastMessageShow
+' Job.Release
+' xui.MsgboxAsync
+' UploadReceiptImage
+' job.PostBytes
+' File.ReadBytes
+' AppendExpenseToSheet
+' GetDayName
+' DateTime.Now
+' job.PostString
+' ExpensePanel.RemoveViewFromParent
+' DateTime.Date
+' JobTimer.Enabled
+' B4XPages.ShowPage
+' ActiveJobMap.Clear
+' CloseOut_Helper_Step1
+' Container.Get
+' su.EncodeUrl
+' job.Download
+' HandleSearchForID
+' person.Get
+' CloseOut_Helper_Step3
+' CloseOut_Helper_Step2
+' DateTime.DateFormat
+
+' =========================================================
+' ===            SECTION S08: MASTER BREAKDOWN            ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 10) ---
+' Sub HandleSearchContact(Job As HttpJob)
+' Sub FetchAllConnections
+' Sub HandleFetchAllConnections(Job As HttpJob)
+' Sub ShowFuzzyOptions
+' Private Sub LevenshteinDistance(s As String, t As String) As Int
+' Sub ParseAndLoadProfile(person As Map)
+' Public Sub StartLedgerQueue(Name As String)
+' Sub HandleSearchLedgerFiles(Job As HttpJob)
+' Sub ProcessNextLedger
+' Sub HandleGetSheetMetadata(Job As HttpJob)
+
+' --- VARIABLE DECLARATIONS (Total: 50) ---
+' Job (HttpJob - Parameter)
+' parser (JSONParser)
+' rootMap (Map)
+' results (List)
+' resItem (Map)
+' person (Map)
+' job (HttpJob)
+' connections (List)
+' Target (String)
+' FoundExact (Boolean)
+' numericTarget (String)
+' pName (String)
+' names (List)
+' pPhone (String)
+' phones (List)
+' pAddr (String)
+' addrs (List)
+' cleanPhone (String)
+' dist (Int)
+' Options (List)
+' key (String - For Each loop)
+' Index (Int - Wait For Result)
+' selectedName (String)
+' s (String - Parameter)
+' t (String - Parameter)
+' n (Int)
+' m (Int)
+' d (Int 2D Array)
+' cost (Int)
+' min1 (Int)
+' min2 (Int)
+' min3 (Int)
+' bios (List)
+' memberships (List)
+' mem (Map - For Each loop)
+' gid (String)
+' Name (String - Parameter)
+' q (String)
+' su (StringUtils)
+' files (List)
+' f (Map - For Each loop)
+' fID (String)
+' sheets (List)
+' sTab (Map - For Each loop)
+' title (String)
+' tabs (List)
+' ledgerID (String)
+' sb (StringBuilder)
+' range (String)
+' currentSpend (Double)
+
+' --- SUBROUTINE CALLS (Total: 58) ---
+' Log
+' parser.Initialize
+' parser.NextObject
+' rootMap.ContainsKey
+' rootMap.Get
+' ParseAndLoadProfile
+' FetchAllConnections
+' job.Initialize
+' job.Download
+' job.GetRequest.SetHeader
+' FuzzyCandidates.Clear
+' CurrentSearchQuery.ToLowerCase
+' Target.Replace
+' person.ContainsKey
+' names.Get
+' phones.Get
+' addrs.Get
+' cleanPhone.Contains
+' LevenshteinDistance
+' FuzzyCandidates.Put
+' ShowFuzzyOptions
+' CallSub (searchScreen, "ShowProfileNotFound")
+' Options.Initialize
+' FuzzyCandidates.Keys
+' Options.Add
+' InputListAsync
+' Options.Get
+' FuzzyCandidates.Get
+' s.CharAt
+' Min
+' TempProfile.Initialize
+' TempProfile.Put
+' Starter.GroupID_Blacklisted
+' StartLedgerQueue
+' LedgerQueue.Initialize
+' IssuesHistory.Initialize
+' su.EncodeUrl
+' LedgerQueue.Add
+' ProcessNextLedger
+' LedgerQueue.Size
+' NumberFormat2
+' CallSub2 (searchScreen, "ShowProfile")
+' LedgerQueue.RemoveAt
+' job.Download
+' Job.Tag
+' BatchFetchTabs
+' sb.Initialize
+' sb.Append
+
+' =========================================================
+' ===            SECTION S09: MASTER BREAKDOWN            ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 20) ---
+' Public Sub GenerateSmartLedger
+' Sub HandleGetSource(Job As HttpJob)
+' Sub CreateNewSheet(templateGID As Int)
+' Sub HandleCreateNew(Job As HttpJob)
+' Public Sub CopyTemplate(sourceID As String, sourceGID As Int, destID As String)
+' Sub HandleCopyTemplate(Job As HttpJob)
+' Sub RenameAndSetDate(spreadsheetID As String, sheetID As Int, newName As String, startDate As String)
+' Sub HandleUpdateSheet(Job As HttpJob)
+' Private Sub GenerateMonthTabs(LedgerID As String)
+' Sub HandleCreateLedger(Job As HttpJob)
+' Sub HandleCalendarSuccess(Job As HttpJob)
+' Sub HandleGenerateMonths(Job As HttpJob)
+' Sub HandlePopulateLedger(Job As HttpJob)
+' Private Sub MonthToString(m As Int) As String
+' Sub ShowUserSelection
+' Sub btnLogin_Click
+' Sub btnSearch_Click
+' Sub btnCreateClient_Click
+' Sub btnScrape_Click
+' Sub btnViewApt_Click
+' Sub btnMakeApt_Click
+' Sub btnCloseout_Click
+' Sub btnCreateLedger_Click
+' Sub lblDashName_Click
+' Sub lblDashPhone_Click
+' Sub lblDashAddr_Click
+' Sub lblArrival_Click
+' Sub JobTimer_Tick
+' Sub spnChose_ItemClick (Index As Int, Value As Object)
+
+' --- VARIABLE DECLARATIONS (Total: 49) ---
+' job (HttpJob)
+' parser (JSONParser)
+' jsonRoot (Map)
+' sheets (List)
+' firstSheet (Map)
+' props (Map)
+' templateGID (Int)
+' templateGID (Int - Parameter)
+' Year (Int)
+' NewName (String)
+' m (Map)
+' json (JSONGenerator)
+' Job (HttpJob - Parameter)
+' newSpreadsheetID (String)
+' sourceID (String - Parameter)
+' sourceGID (Int - Parameter)
+' destID (String - Parameter)
+' newSheetID (Int)
+' destSpreadsheetID (String)
+' StartDate (String)
+' spreadsheetID (String - Parameter)
+' sheetID (Int - Parameter)
+' newName (String - Parameter)
+' startDate (String - Parameter)
+' requests (List)
+' renameRequest (Map)
+' deleteRequest (Map)
+' TagData (Map)
+' LedgerID (String - Parameter)
+' MonthNum (Int)
+' monthName (String)
+' addRequest (Map)
+' Options (List)
+' Index (Int - Parameter/Wait Result)
+' Value (Object - Parameter)
+' cName (String)
+' cPhone (String)
+' Result (Int - Wait Result)
+' cAddr (String)
+' btn (B4XView)
+' IsTagMap (Boolean)
+' DataMap (Map)
+' ApptID (String)
+' Elapsed (Long)
+' Minutes (Int)
+' Hours (Int)
+' RemainMin (Int)
+' TimeStr (String)
+' m (Int - MonthToString)
+
+' --- SUBROUTINE CALLS (Total: 62) ---
+' xui.MsgboxAsync
+' job.Initialize
+' job.Download
+' job.GetRequest.SetHeader
+' parser.Initialize
+' parser.NextObject
+' jsonRoot.Get
+' CreateNewSheet
+' DateTime.GetYear
+' CreateMap
+' json.Initialize
+' job.PostString
+' job.GetRequest.SetContentType
+' CopyTemplate
+' RenameAndSetDate
+' requests.Initialize
+' requests.Add
+' GenerateMonthTabs
+' MonthToString
+' File.WriteString
+' appointmentScreen.IsInitialized
+' CallSub
+' RefreshDashboard
+' ProgressDialogHide
+' Options.Initialize
+' Options.Add
+' InputListAsync
+' spnChose.SelectedIndex
+' File.WriteMap
+' OAuth2.GetAccessToken
+' B4XPages.ShowPage
+' StartScrapeProcess
+' CloseOutScreen.IsInitialized
+' CallSub2
+' ProgressDialogShow
+' GenerateSmartLedger
+' Msgbox2Async
+' LaunchDialer
+' LaunchSMS
+' LaunchMaps
+' btn.Tag
+' DataMap.GetDefault
+' JobTimer.Enabled
+' DateTime.Now
+' NumberFormat
+' ToastMessageShow
+' VMPlayer.Load
+' VMPlayer.Play
+' VMPlayer.Position
+
+' =========================================================
+' ===            SECTION S10: MASTER BREAKDOWN            ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 9) ---
+' Public Sub SearchContact(Query As String)
+' Public Sub CreateNewContact(ClientMap As Map)
+' Public Sub UpdateContact(Profile As Map)
+' Sub HandleUpdateContact(Job As HttpJob)
+' Public Sub UpdateGoogleContact(Params As List)
+' Public Sub CreateNewContactFromForm(Data As Map)
+' Sub HandleCreateNewContact(Job As HttpJob)
+' Sub OnDateSelected(year As Int, month As Int, day As Int)
+' Sub HandleSearchDate(Job As HttpJob)
+' Private Sub ParseIsoToLocalHour(iso As String) As Int
+' Private Sub CreateRFC3339(Ticks As Long, Offset As String) As String
+
+' --- VARIABLE DECLARATIONS (Total: 43) ---
+' Query (String - Parameter)
+' job (HttpJob)
+' su (StringUtils)
+' FinalURL (String)
+' ClientMap (Map - Parameter)
+' cName (String)
+' cPhone (String)
+' cAddr (String)
+' cNotes (String)
+' cGroup (String)
+' TargetGroupID (String)
+' memberships (List)
+' m (Map)
+' json (JSONGenerator)
+' Profile (Map - Parameter)
+' ResourceName (String)
+' Etag (String)
+' NewNotes (String)
+' IsBlacklisted (Boolean)
+' IsPreferred (Boolean)
+' NewLabel (String)
+' targetGroupID (String)
+' personMap (Map)
+' Job (HttpJob - Parameter)
+' Params (List - Parameter)
+' Data (Map - Parameter)
+' OriginalData (Map)
+' year (Int - Parameter)
+' month (Int - Parameter)
+' day (Int - Parameter)
+' DateParts (Int Array)
+' parser (JSONParser)
+' rootMap (Map)
+' items (List)
+' iso (String - Parameter)
+' hour (Int)
+' LocalH (Int)
+' H (Int)
+' Ticks (Long - Parameter)
+' Offset (String - Parameter)
+' OldFormat (String)
+' DatePart (String)
+' TimePart (String)
+
+' --- SUBROUTINE CALLS (Total: 51) ---
+' job.Initialize
+' su.EncodeUrl
+' job.Download
+' job.GetRequest.SetHeader
+' xui.MsgboxAsync
+' ClientMap.GetDefault
+' memberships.Initialize
+' memberships.Add
+' CreateMap
+' json.Initialize
+' job.PostString
+' job.GetRequest.SetContentType
+' Profile.Get
+' UpdateContact
+' job.PatchString
+' RecentlyUpdated.Put
+' TempProfile.Get
+' CallSub (searchScreen, "ShowUpdateSuccess")
+' Job.Release
+' Params.Get
+' CreateNewContact
+' ScrapeQueue.IsInitialized
+' ScrapeQueue.Size
+' ScrapeQueue.RemoveAt
+' ProcessNextScrapeItem
+' CallSub2 (appointmentScreen, "OnDateSelected")
+' parser.Initialize
+' parser.NextObject
+' rootMap.ContainsKey
+' rootMap.Get
+' iso.EndsWith
+' iso.SubString2
+' DateTime.DateFormat
+' DateTime.Date
+' DateTime.Time
+' DateTime.Now
+
+' =========================================================
+' ===            SECTION S11: MASTER BREAKDOWN            ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 14) ---
+' Public Sub CleanAddress(Raw As String) As String
+' Public Sub CleanAddressForSave(Raw As String) As String
+' Public Sub LaunchDialer(PhoneNumber As String)
+' Public Sub DirectCall(PhoneNumber As String)
+' Public Sub LoadSounds
+' Public Sub PlayRandomSound
+' Public Sub LaunchSMS(PhoneNumber As String, Message As String)
+' Public Sub LaunchMaps(Address As String)
+' Sub GPS_LocationChanged (Location1 As Location)
+' Private Sub GeocodeAddress(Address As String)
+' Private Sub HandleGeocode(Job As HttpJob)
+' Public Sub ArchiveVoicemail(Data As Map)
+' Public Sub DeleteVoicemail(Data As Map)
+' Private Sub UpdateArrivalButtonsState
+' Sub HandleGetReceiptLink(Job As HttpJob)
+
+' --- VARIABLE DECLARATIONS (Total: 50) ---
+' Raw (String - Parameter)
+' Zip (String)
+' m (Matcher)
+' StreetPart (String)
+' cleaned (String)
+' PhoneNumber (String - Parameter)
+' cleanPhone (String)
+' i (Intent)
+' RndIndex (Int)
+' SndID (Int)
+' Message (String - Parameter)
+' Address (String - Parameter)
+' su (StringUtils)
+' Location1 (Location - Parameter)
+' MapsApiKey (String)
+' encodedAddr (String)
+' job (HttpJob)
+' Job (HttpJob - Parameter)
+' OriginalAddress (String)
+' parser (JSONParser)
+' jsonRoot (Map)
+' status (String)
+' results (List)
+' firstResult (Map)
+' geometry (Map)
+' location (Map)
+' loc (Location)
+' p (B4XView)
+' v (B4XView)
+' DataMap (Map)
+' ApptID (String)
+' Addr (String)
+' Dest (Location)
+' Link (String)
+' iLoop (Int)
+' fn (String)
+' TempIndices (List)
+' TargetIdx (Int)
+
+' --- SUBROUTINE CALLS (Total: 54) ---
+' Regex.Matcher
+' m.Find
+' m.Match
+' Raw.Contains
+' Raw.IndexOf
+' Raw.SubString2
+' Raw.Trim
+' Raw.Replace
+' cleaned.EndsWith
+' cleanPhone.Replace
+' i.Initialize
+' StartActivity
+' Log
+' Rnd
+' SoundIDs.Get
+' SoundIDs.Add
+' SP.Play
+' SP.Load
+' SP.Initialize
+' su.EncodeUrl
+' UpdateArrivalButtonsState
+' GeocodedLocations.ContainsKey
+' FailedGeocodes.ContainsKey
+' job.Initialize
+' job.Download
+' parser.Initialize
+' parser.NextObject
+' jsonRoot.GetDefault
+' FailedGeocodes.Put
+' results.Size
+' loc.Initialize
+' GeocodedLocations.Put
+' lstTodayApts.GetPanel
+' p.GetView
+' DataMap.ContainsKey
+' CurrentLocation.DistanceTo
+' GeocodeAddress
+' ProgressDialogHide
+' rootMap.GetDefault
+' xui.MsgboxAsync
+' Job.Release
+' AppendExpenseToSheet
+' File.Exists
+' NumberFormat
+' TempIndices.Initialize
+' TempIndices.Add
+' TempIndices.RemoveAt
+' TempIndices.Size
+' Sleep
+
+' =========================================================
+' ===            SECTION S12: MASTER BREAKDOWN            ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 11) ---
+' Public Sub AdvanceScrapeQueue
+' Public Sub ShowScrapeManualEntry(ScrapeData As Map)
+' Sub skbAudio_ValueChanged (Value As Int, UserChanged As Boolean)
+' Sub btnPlayVM_Click
+' Sub btnStopVM_Click
+' Private Sub FormatAudioTime(Seconds As Int) As String
+' Sub txtTrans_LongClick
+' Private Sub AddScrapeRow(Parent As B4XView, Top As Int, ParentWidth As Int, LblText As String, Val As String, ChkTag As String, TxtTag As String) As Int
+' Sub btnCloseScraper_Click
+' Private Sub FormatAudioTime(Seconds As Int) As String
+' Sub skbAudio_ValueChanged (Value As Int, UserChanged As Boolean)
+
+' --- VARIABLE DECLARATIONS (Total: 74) ---
+' ScrapeData (Map - Parameter)
+' pnlOverlay (B4XView)
+' NativePnl (Panel)
+' ScreenW (Int)
+' IsBigScreen (Boolean)
+' DialogW (Int)
+' DialogH (Int)
+' pnlDialog (B4XView)
+' LeftPos (Int)
+' TopPos (Int)
+' lblHeader (Label)
+' xHeader (B4XView)
+' btnClosePopup (Button)
+' pnlLeft (B4XView)
+' svRight (ScrollView)
+' pContent (B4XView)
+' HeaderH (Int)
+' BodyH (Int)
+' LeftW (Int)
+' RightW (Int)
+' TopH (Int)
+' BotH (Int)
+' RawName (String)
+' RawName2 (String)
+' RawPhone (String)
+' RawAddr (String)
+' RawNotes (String)
+' RawBody (String)
+' sb (StringBuilder)
+' VmDate (String)
+' VmTime (String)
+' mHeader (Matcher)
+' FullHeader (String)
+' LastSpace (Int)
+' AudioPath (String)
+' EmlPath (String)
+' FName (String)
+' AmrName (String)
+' btnPlay (Button)
+' btnStop (Button)
+' skbAudio (SeekBar)
+' lblDate (Label)
+' lblTime (Label)
+' lblDuration (Label)
+' xDuration (B4XView)
+' TotalSecs (Int)
+' txtTrans (EditText)
+' TopY (Int)
+' FormW (Int)
+' btnCreate (Button)
+' btnDel (Button)
+' btnArc (Button)
+' Value (Int - Parameter)
+' UserChanged (Boolean - Parameter)
+' TotalMs (Int)
+' NewPos (Int)
+' skb (SeekBar)
+' RemainingSecs (Int)
+' btn (Button)
+' CurrentMs (Int)
+' PercentComplete (Float)
+' Seconds (Int - Parameter)
+' Mins (Int)
+' Secs (Int)
+' et (EditText)
+' jo (JavaObject)
+' Parent (B4XView - Parameter)
+' RowH (Int)
+' ChkSize (Int)
+' LblW (Int)
+' chk (CheckBox)
+' lbl (Label)
+' InputX (Int)
+' InputWidth (Int)
+' txt (EditText)
+
+' --- SUBROUTINE CALLS (Total: 66) ---
+' xui.MsgboxAsync
+' RefreshDashboard
+' ScrapeQueue.Get
+' ScrapeQueue.RemoveAt
+' ProcessNextScrapeItem
+' xui.CreatePanel
+' Root.AddView
+' pnlOverlay.BringToFront
+' GetDeviceLayoutValues
+' Min
+' pnlDialog.SetColorAndBorder
+' lblHeader.Initialize
+' xHeader.SetTextAlignment
+' btnClosePopup.Initialize
+' svRight.Initialize
+' pContent.Color
+' pnlLeft.SetLayoutAnimated
+' svRight.SetLayoutAnimated
+' ScrapeData.GetDefault
+' Regex.Matcher
+' mHeader.Find
+' mHeader.Group
+' RawBody.Replace
+' File.DirRootExternal
+' btnPlay.Initialize
+' btnStop.Initialize
+' skbAudio.Initialize
+' lblDate.Initialize
+' lblDuration.Initialize
+' txtTrans.Initialize
+' pnlLeft.AddView
+' File.Exists
+' VMPlayer.Load
+' VMPlayer.Duration
+' FormatAudioTime
+' AddScrapeRow
+' btnCreate.Initialize
+' btnDel.Initialize
+' btnArc.Initialize
+' pContent.AddView
+' VMPlayer.IsInitialized
+' VMPlayer.Position
+' btn.Parent
+' btn.Tag
+' VMPlayer.Play
+' VMPlayer.IsPlaying
+' Sleep
+' NumberFormat
+' ToastMessageShow
+' jo.RunMethod
+' chk.Initialize
+' lbl.Initialize
+' txt.Initialize
+' pnlOverlay.RemoveViewFromParent
+' ScrapeQueue.Clear
+' Root.As(B4XView).SetLayoutAnimated
+
+' =========================================================
+' ===            SECTION S13: MASTER BREAKDOWN            ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 6) ---
+' Sub btnScrapeCreate_Click
+' Private Sub CheckTrafficCop(FinalMap As Map)
+' Private Sub CheckDuplicateField(Query As String) As ResumableSub
+' Public Sub btnScrapeDelete_Click
+' Public Sub btnScrapeArchive_Click
+' Public Sub setClipboardText(text As String) ' Java Helper
+
+' --- VARIABLE DECLARATIONS (Total: 34) ---
+' btn (Button)
+' pnlOverlay (B4XView)
+' ScrapeData (Map)
+' pnlDialog (B4XView)
+' svView (B4XView)
+' pContent (B4XView)
+' FinalMap (Map)
+' v (B4XView - For Each loop)
+' t (String)
+' Key (String)
+' ChkTag (String)
+' IsChecked (Boolean)
+' v2 (B4XView - Nested For Each loop)
+' c (CheckBox)
+' FinalMap (Map - Parameter)
+' SearchPhone (String)
+' SearchName (String)
+' SearchAddr (String)
+' FoundMatch (Boolean)
+' MatchedQuery (String)
+' CleanAddr (String)
+' Result (Boolean - Wait Result)
+' Query (String - Parameter)
+' su (StringUtils)
+' j (HttpJob)
+' HasDuplicate (Boolean)
+' parser (JSONParser)
+' jsonRoot (Map)
+' results (List)
+' text (String - Java Parameter)
+' clipboard (ClipboardManager)
+' clip (ClipData)
+' context (Context)
+
+' --- SUBROUTINE CALLS (Total: 41) ---
+' Log
+' btn.Tag
+' pnlOverlay.Tag
+' pnlOverlay.GetView
+' pnlDialog.GetView
+' svView.GetView
+' FinalMap.Initialize
+' pContent.GetAllViewsRecursive
+' v.Tag.StartsWith
+' v.Tag.SubString
+' c.Checked
+' FinalMap.Put
+' pnlOverlay.RemoveViewFromParent
+' Root.As(B4XView).SetLayoutAnimated
+' lstTodayApts.GetBase.As(View).Invalidate
+' CheckTrafficCop
+' xui.MsgboxAsync
+' ProgressDialogShow
+' FinalMap.GetDefault
+' CheckDuplicateField
+' ProgressDialogHide
+' B4XPages.ShowPage
+' PerformSearch
+' clientCreator.PopulateScrapeData
+' su.EncodeUrl
+' j.Initialize
+' j.Download
+' j.GetRequest.SetHeader
+' parser.Initialize
+' parser.NextObject
+' jsonRoot.ContainsKey
+' jsonRoot.Get
+' j.Release
+' ScrapedApptIssue.Equals
+' DeleteVoicemail
+' ArchiveVoicemail
+' AdvanceScrapeQueue
+' jo.RunMethod (setClipboardText)
+' ToastMessageShow
+' BA.applicationContext.getSystemService
+' ClipData.newPlainText
+' clipboard.setPrimaryClip
+
+' =========================================================
+' ===            SECTION S14: MASTER BREAKDOWN            ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 1) ---
+' Sub JobDone (Job As HttpJob)
+
+' --- VARIABLE DECLARATIONS (Total: 7) ---
+' Job (HttpJob - Parameter)
+' parser (JSONParser)
+' rootMap (Map)
+' items (List)
+' LedgerID (String)
+' user (String)
+' SentTime (String)
+
+' --- SUBROUTINE CALLS (Total: 41) ---
+' Log
+' HandleFetchDashboard
+' HandleListGroups
+' CloseOut_Helper_Step3
+' HandleSearchContact
+' HandleFetchAllConnections
+' HandleSearchDate
+' HandleSearchForID
+' HandleCalendarSuccess
+' HandleGetSource
+' HandleCreateNew
+' HandleCopyTemplate
+' HandleUpdateSheet
+' HandleGenerateMonths
+' HandleSearchLedgerFiles
+' HandleGetSheetMetadata
+' BatchGetLedger
+' CloseOut_Finished
+' HandleCreateLedger
+' HandlePopulateLedger
+' HandleGeocode
+' CloseOut_Helper_Step4
+' HandleVisionOCR
+' HandleUploadReceipt
+' HandleGetReceiptLink
+' HandleAppendExpense
+' Job.ErrorMessage.Contains
+' OAuth2.access_token (Reset)
+' xui.MsgboxAsync
+' Job.Release
+' ProgressDialogHide
+' B4XPages.AddPage
+' Starter.GroupID_Client
+' Starter.GroupID_Preferred
+' Starter.GroupID_Blacklisted
+' File.Exists
+' File.ReadString
+' NumberFormat2
+' DateTime.Date
+' DateTime.Time
+' DateTime.Now
+
+' =========================================================
+' ===            SECTION S15: MASTER BREAKDOWN            ===
+' =========================================================
+
+' --- SUBROUTINE DECLARATIONS (Total: 5) ---
+' Public Sub StartGestures
+' Public Sub StopGestures
+' Sub GestureShake_SensorChanged (Values() As Float)
+' Private Sub ToggleFlashlight
+' public void setTorchMode(boolean enabled) ' Java Helper
+
+' --- VARIABLE DECLARATIONS (Total: 12) ---
+' Values (Float Array - Parameter)
+' X (Float)
+' Y (Float)
+' Z (Float)
+' GForce (Float)
+' Now (Long)
+' pv (PhoneVibrate)
+' jo (JavaObject)
+' enabled (boolean - Java Parameter)
+' context (Context)
+' camManager (CameraManager)
+' cameraId (String)
+
+' --- SUBROUTINE CALLS (Total: 19) ---
+' SensorShake.StartListening
+' Log
+' SensorShake.StopListening
+' Sqrt
+' DateTime.Now
+' ToggleFlashlight
+' NumberFormat
+' pv.Vibrate
+' jo.RunMethod
+' ToastMessageShow
+' BA.applicationContext
+' context.getSystemService
+' camManager.getCameraIdList
+' camManager.setTorchMode
+' NumberFormat
+' DateTime.Now
+' Log (Gesture status)
+' Log (Chop detection)
+' Log (Torch action)

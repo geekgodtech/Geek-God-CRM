@@ -1,0 +1,622 @@
+Here is the fully consolidated, extensive **Project Summary Log**. I have merged the technical data, the completed phases, and the detailed requirements for the upcoming modules (Expenses, Identity, Holidays, etc.) into one master document.
+
+```text
+PROJECT SUMMARY LOG: GEEK GOD CRM
+=============================================================================
+PROJECT LEAD:       Michael (The Geek God)
+DEVELOPER:          Rufus III
+CURRENT DATE:       January 27, 2026
+STATUS:             Phase 6 Complete / Entering Phase 7 (Identity & Expenses)
+PLATFORM:           Android (B4A)
+TARGET DEVICES:     Samsung ZFold (Mike), Samsung S24 (Erin)
+=============================================================================
+
+[OBJECTIVE]
+Create a custom CRM to automate client intake via visual voicemail scraping, 
+manage appointments via a custom Google Calendar interface, track business 
+metrics via Google Sheets, and manage expenses via OCR/Cloud Storage.
+
+[CRITICAL TECHNICAL NOTES - DO NOT LOSE]
+-----------------------------------------------------------------------------
+Package Name:           Geek.God.CRM.App (Case Sensitive)
+Redirect URI Scheme:    geek.god.crm.app
+Redirect URI Full:      geek.god.crm.app:/oauth2redirect
+
+> API CREDENTIALS (VERIFIED & ACTIVE)
+Client ID (Android):    1077575612876-jhp5h3hvs9pfq60tmkjhsupggs0ji157.apps.googleusercontent.com
+Maps/Places API Key:    AIzaSyAVOMjr8iK5af4oj2xjZntrKH6ec2lpvR4
+Required Scopes:        Sheets, Calendar, Contacts, Drive (Read/Write)
+
+> GOOGLE SHEETS / DRIVE INFRASTRUCTURE
+Root Folder:            GeekGodTech/Ledgers/
+
+1. BUSINESS LEDGERS (Income)
+   Current Ledger (2026): 1tkKcMHl3AB6jjxmk5YoRd5D-_R3_d7Y6eu79W-14oJs
+   Future Year Template:  1yvrz6-sMC_XRIJ0djVAV3Tfb3K2rR_ET2hYTTf7oIy8
+   Path:                  Root\Ledgers\yyyy\Geek God Ledger [yyyy]
+
+2. EXPENSE LEDGERS (Erin's Module)
+   Master Year Ledger:    1YJOjXFiW5RAS18FSBoqmq_0MVAVKz2-47SZmBi-0nec
+   Master Year Template:  14PhXY-EXSc2n96cUe3NqyASlWk-o9Wgy2txQJ4OIKcY
+   Monthly Template:      1q_tx9Mw-3KKa0jAvdPq4vQ-btw6kl3GvtVBC6FORrWM
+   Path:                  Root\Ledgers\yyyy\Expenses\Master Year Expense Ledger
+   Monthly Path:          Root\Ledgers\yyyy\Expenses\[mm - Mon]\[mm]_[yyyy] Expense Report
+
+3. REVIEW LINKS
+   Mike (God):            https://bit.ly/writenextdoorreview
+   Erin (Goddess):        https://bit.ly/writenextdoorreviewgoddess
+
+> VIEWPORT / IDENTITY DEFINITIONS
+   View 1 (Mike Open):    W > 1600 (Unfolded) OR (W ~900-1000 & H ~2100-2200)
+   View 2 (Mike Closed):  W ~1856, H ~1998 (Folded)
+   View 3 (Erin Phone):   W ~720, H ~1420 (S24 Standard)
+
+=============================================================================
+[ACCOMPLISHED TASKS - MASTER LIST]
+
+PHASE 1: THE FOUNDATION (Google Cloud & Auth)
+[x] 1.1 Created Google Cloud Project "GeekGodCRM".
+[x] 1.2 Enabled APIs: Sheets, Calendar, People, Places, Drive.
+[x] 1.3 Configured OAuth2 Client ID & Consent Screen with correct scopes.
+
+PHASE 2: DASHBOARD & NAVIGATION
+[x] 2.1 Built B4XMainPage with 4-Button Grid Layout.
+[x] 2.2 Implemented "Live Timer" for "Next Client In: XX:XX".
+[x] 2.3 Stats Panel: Monthly/Daily Income Tracker with custom fonts.
+
+PHASE 3: CLIENT INTAKE
+[x] 3.1 Designed Scrolling Form (Name, Phone, Address, Apt, Group).
+[x] 3.2 Implemented Google Places Autocomplete (via Place Details API).
+[x] 3.3 "Magic Phone Button": Long Press = Auto-fills from Call Log; Click = Direct Dial.
+[x] 3.4 Duplicate Detection: Checks Google Contacts API to prevent double-booking.
+
+PHASE 4: SEARCH & DATABASE
+[x] 4.1 SearchPage Logic: Queries Google Contacts via names/phones.
+[x] 4.2 Result Parsing: Extracts Notes, Group, and Spend History.
+[x] 4.3 Profile Card: Dynamic UI cards based on client status (Blacklisted/Preferred).
+[x] 4.4 Font System: Implemented `LoadSafeFont` for external font loading.
+
+PHASE 5: CLOSEOUT & METRICS
+[x] 5.1 Closeout Form: Step-by-step job completion wizard.
+[x] 5.2 Ledger Logic: Appends data to Google Sheets, preserving formatting.
+[x] 5.3 Calendar Updates: Changes event color to Green (ID: 8/11) and appends metrics.
+[x] 5.4 SMS Automation: Triggers native SMS with pre-filled review links.
+
+PHASE 6: UI POLISH & CORE ENGINES
+[x] 6.1 Layout Engine: "Smart Watchdog" (500ms) detects Fold/Unfold events.
+[x] 6.2 Voicemail Scraper: Parses .eml files, plays .amr audio, extracts client data.
+[x] 6.3 Audio Engine: Integrated `SoundPool` for UI sound effects (150+ sounds).
+[x] 6.4 Direct Dial: Bypassed native dialer UI for instant calling (ACTION_CALL).
+[x] 6.5 Global Fonts: Applied custom TTF fonts to all pages/buttons/labels.
+
+=============================================================================
+[PENDING TASKS - THE ROADMAP]
+
+1. IDENTITY ENGINE (The "God vs Goddess" Logic)
+   [ ] Logic: On App Start/Resize, detect user identity based on screen dimensions.
+   [ ] Timer: 500ms Watchdog checks Root.Width against View 1, 2, and 3.
+   [ ] Actions:
+       - Set Global `CurrentUser` variable.
+       - Auto-select Name in Schedule Spinners.
+       - Swap Review Links (SMS) based on identity.
+       - Change App Background: Use provided custom images for Mike/Erin.
+       - Toggle visibility of specific buttons (e.g., Expense Button for Erin).
+
+2. EXPENSE MODULE (Erin Only)
+   [ ] Trigger: Button visible ONLY if `CurrentUser == "Goddess"`.
+   [ ] Functionality: Native Camera Intent -> Google ML Kit (OCR).
+   [ ] UI: Split Screen (Receipt Image Right / Data Form Left).
+   [ ] Data Points: Date, Time, Category (Spinner), Notes, Amount, rLink.
+   [ ] Storage Logic (Drive API):
+       - Path: Expenses/[yyyy]/[mm]/[dd]/[Receipts]/
+       - Save Image -> Generate `rLink`.
+   [ ] Ledger Logic (Sheets API):
+       - Check for Monthly Sheet: `[mm]/[yyyy] Expense Report`.
+       - If missing: Copy Template (ID: 1q_tx9...), Rename, Move to correct folder.
+       - Append Row: Day | Date | Time | Expense | Notes | rLink | Amount.
+
+3. MASTER LEDGER AUTOMATION (Mike Only)
+   [ ] Trigger: Closeout logic or separate Admin button.
+   [ ] Logic: Ensure entries append to "Master Year Expense Ledger".
+   [ ] Year-End Protocol: Auto-generate new folders/sheets for upcoming year using Templates.
+
+4. SEARCH PAGE REFINEMENTS
+   [ ] Aggregated Notes: Query Sheets Ledger to merge historical visit notes with Google Contact notes.
+   [ ] Client Group Editing: Changing group in dropdown should NOT save immediately. Must wait for "Save" button to update Google Contact.
+
+5. HOLIDAY THEMES
+   [ ] Logic: Check Date on Dashboard load.
+   [ ] Action: Change Date Label color/text to match holiday list (see below).
+   [ ] Code Snippet:
+       If Month = 12 And Day >= 15 Then
+           lblDayDate.Text = "🎄 " & lblDayDate.Text & " 🎄" ...
+   [ ] (Refer to full holiday list in raw notes for specific dates/colors).
+
+6. ANDROID WIDGET
+   [ ] Create Home Screen Widget displaying `lstTodayApts` content.
+   [ ] Must reflect the schedule of the currently selected user (God/Goddess).
+
+7. EXPENSE CATEGORIES (Spinner Population)
+   [ ] Populate Expense Spinner with comprehensive list:
+       - Accounting/Bookkeeping, Advertising, Car Wash, Cell Phone, 
+       - Computer Hardware/Software, Fuel, Internet, Meals, Mileage,
+       - Office Supplies, Parking/Tolls, Postage, Rent, Repairs,
+       - Tools, Utilities, Uniforms, etc. (Full list in raw notes).
+
+8. GEO-FENCE ARRIVAL
+   [ ] Reactivate GPS Logic.
+   [ ] Trigger: When distance to Client Address < 300ft.
+   [ ] Action: Enable "Car Icon", Shake animation on screen, Vibrate phone.
+
+=============================================================================
+[RUFUS III CRITICAL PROTOCOL]
+
+You are working with a Python-based Smart Injector Script. 
+THE RULE OF VERBATIM OUTPUT: 
+The script looks for markers like //<START-B4XMainPage-S01>. 
+It replaces everything between those markers with EXACTLY what you output.
+
+IF YOU TRUNCATE, SUMMARIZE, OR "PLACEHOLDER" THE CODE: 
+The user's application will be DESTROYED.
+
+YOUR PRIME DIRECTIVE: 
+When asked to output a code section, you must output EVERY SINGLE LINE OF CODE. 
+Do not use "..." to skip sections. 
+If code is too long, break it into labeled parts (Part 1, Part 2) and instruct 
+the user to combine them before injecting. 
+FAILURE TO ADHERE IS A CATASTROPHIC ERROR.
+=============================================================================
+https://youtu.be/3WGXWZTk-pw?si=ll4UxkBHNLZZKLj-
+This is a video showing a feature I would like to implement into my program please watch it.
+
+
+
+I had lost a bunh of code because I wasn't watching Rufus II close enough and I uploaded all my projects files along with a bunch of my backup files and asked AI to do a comprehensive report on what was missing.
+Then I had it construct for me information I needed to give my coding agent to assist me in its restoration.
+I have worked extensively on the project since this report so much of it may have been located and restored but what I would like to do for my next task is go over this report. Upload each file in turn and have you look at the code to see if what is in the report still needs restoration or if it has been repaired or there is now a superior way in which somthing is now done or handeled. 
+Below is that report:
+
+Forensic Restoration and Architectural Analysis of the "Geek God" CRM Application1. Executive Overview of the Recovery InitiativeThe objective of this comprehensive forensic report is to document the recovery, analysis, and restoration of the "Geek God" Client Relationship Management (CRM) system. This application, built upon the B4X (Basic4Android) framework, serves as a critical interface for financial ledger management, client scheduling, and Google Ecosystem integration. The recovery effort was necessitated by a corruption or versioning control failure in the production codebase, requiring a meticulous reconstruction of logic from a set of fragmented backup artifacts.The analysis draws from four primary source files provided for forensic review: B4XMainPageNewCurrentCode.bas, Copy) m4XMainPage.bas, OldWorkingCode.bas, and B4XMainPage.bak. These artifacts represent different temporal snapshots of the application's lifecycle, ranging from older stable builds to newer, partially broken development versions. By cross-referencing these files, we have successfully identified a significant volume of "lost" subroutines—code blocks that existed in previous working versions but were absent or truncated in the current codebase.This report is structured to strictly follow the recovery protocol: first, identifying the missing routines by name and module provenance; second, defining their interface contracts (declarations); and third, presenting the fully restored code accompanied by deep-dive architectural analysis. The narrative provided herein does not merely list the code but contextualizes it within the broader scope of Android application lifecycle management, OAuth2 security protocols, and responsive user interface design for foldable devices.2. Inventory of Recovered SubroutinesThe first phase of the recovery process involves a strict accounting of the logical units (subroutines) that were salvaged from the backup artifacts. The analysis of the file B4XMainPageNewCurrentCode.bas reveals a functional skeleton but lacks the critical business logic found in Copy) m4XMainPage.bas and the layout stability logic found in OldWorkingCode.bas.The following table provides a consolidated inventory of the missing or compromised subroutines, identifying the primary module (source file) where the most intact version was located. This inventory serves as the master manifest for the restoration effort.Table 1: Master Inventory of Missing and Recovered LogicSubroutine NamePrimary Source ArtifactCategoryRestoration StatusStartLedgerQueueCopy) m4XMainPage.basData ProcessingFully RecoveredProcessNextLedgerCopy) m4XMainPage.basData ProcessingFully RecoveredBatchFetchTabsCopy) m4XMainPage.basAPI IntegrationFully RecoveredBatchGetLedgerCopy) m4XMainPage.basData ParsingFully RecoveredSearchContactCopy) m4XMainPage.basAPI IntegrationFully RecoveredUpdateGoogleContactCopy) m4XMainPage.basAPI IntegrationFully RecoveredAdjustLayoutOldWorkingCode.bas / .bakUI/Layout EnginePartially Recovered (Truncated)LayoutWatchdog_TickOldWorkingCode.basUI/Layout EngineFully RecoveredShowUserSelectionCopy) m4XMainPage.basUser ManagementFully RecoveredCheckSettingsCopy) m4XMainPage.basPersistenceFully Recoveredime_HeightChangedCopy) m4XMainPage.basUI Event HandlingFully RecoveredJobDoneCopy) m4XMainPage.basAsync NetworkingPartially RecoveredOAuth2_AccessTokenAvailableCopy) m4XMainPage.basSecurityFully RecoveredLaunchAppointmentViewCopy) m4XMainPage.basNavigationFully RecoveredbtnCreateLedger_ClickCopy) m4XMainPage.basEvent HandlerFully RecoveredbtnSearch_ClickCopy) m4XMainPage.basEvent HandlerFully RecoveredbtnLogin_ClickCopy) m4XMainPage.basEvent HandlerFully RecoveredGenerateSmartLedgerNone (Reference Only)Data ProcessingMissing / UnrecoverableIt is crucial to note the distinction between "Fully Recovered" and "Partially Recovered." For instance, the AdjustLayout subroutine, critical for the application's responsiveness, is present in the backups but suffers from truncation in the provided text snippets, cutting off the logic that physically resizes the views. Similarly, GenerateSmartLedger is referenced in the event handlers but does not appear in the text body of any provided snippet, suggesting it may reside in a class file not included in this dataset (e.g., a dedicated LedgerManager class).3. Interface Declarations (Signatures)Before analyzing the implementation details, we must establish the interface contracts. These declarations define the input/output boundaries of the recovered components. In the B4X language, strict typing (e.g., As Int, As Map) is enforced, and understanding these signatures is prerequisite to integrating the recovered code back into the main project.3.1. Data Processing and API DeclarationsThe following declarations govern the interaction with Google Drive and Google Sheets. They rely heavily on the HttpJob object from the OkHttpUtils2 library, which handles the asynchronous networking tasks.Public Sub StartLedgerQueue(Name As String)Scope: Public (accessible from other B4XPages).Parameters: Name - The client name used to filter the ledger search.Sub ProcessNextLedgerScope: Private (Internal helper).Parameters: None (Relies on module-level LedgerQueue variable).Sub BatchFetchTabs(Tabs As List, ledgerID As String)Scope: Private (Internal helper).Parameters: Tabs - A list of sheet names; ledgerID - The Google Drive File ID.Sub BatchGetLedger(Job As HttpJob)Scope: Public (Callback target).Parameters: Job - The completed network request object containing the JSON response.3.2. Contact Management DeclarationsThese interfaces manage the connection to the Google People API.Public Sub SearchContact(Query As String)Scope: Public.Parameters: Query - The search string (name, email, or phone).Public Sub UpdateGoogleContact(Params As List)Scope: Public.Parameters: Params - A list containing ``.3.3. UI and Layout Engine DeclarationsThese declarations form the backbone of the adaptive interface, specifically designed to handle dynamic resizing events common on foldable devices like the Samsung Z Fold.Private Sub AdjustLayout(Width As Int, Height As Int)Scope: Private.Parameters: Width / Height - The new dimensions of the container view.Private Sub LayoutWatchdog_TickScope: Private (Timer Event).Parameters: None.Sub ime_HeightChanged(NewHeight As Int, OldHeight As Int)Scope: Public (Event).Parameters: NewHeight / OldHeight - Dimensions representing the visible screen area affected by the software keyboard.3.4. Lifecycle and Security DeclarationsSub CheckSettingsScope: Public.Sub ShowUserSelectionScope: Public.Sub OAuth2_AccessTokenAvailable(Success As Boolean, Token As String)Scope: Public (Callback).Parameters: Success - Boolean flag; Token - The raw OAuth2 access token (if successful).Public Sub CheckOAuth(Intent As Intent)Scope: Public.Parameters: Intent - The Android system intent carrying the deep-link redirect uri.4. Forensic Restoration: The Recovered Source CodeThis section presents the recovered source code in its entirety, organized by functional domain. Each block is accompanied by an extensive analysis of its logic, dependencies, and architectural significance.4.1. The "Smart Ledger" EngineThe core value proposition of the Geek God application appears to be its ability to aggregate financial data from distributed Google Sheets ("Ledgers"). The recovery of the following subroutines restores the application's ability to search, fetch, and compute client spend data.4.1.1. Subroutine: StartLedgerQueueSource Artifact: Copy) m4XMainPage.bas This subroutine acts as the entry point for the financial analysis workflow. When a user queries a client, this routine is triggered to find the relevant spreadsheet on Google Drive.VB.NetPublic Sub StartLedgerQueue(Name As String)
+    ' Initialize the processing queues and temporary storage
+    LedgerQueue.Initialize
+    IssuesHistory.Initialize
+    
+    ' Reset the temporary profile metrics
+    TempProfile.Put("RawTotalSpend", 0.0)
+    TempProfile.Put("RawVisitCount", 0)
+    TempProfile.Put("LastVisit", "New Client")
+    
+    ' Initialize the network request
+    Dim job As HttpJob
+    job.Initialize("SearchLedgerFiles", Me)
+    
+    ' Construct the Google Drive API Query
+    ' Logic: Find files with "Geek God Ledger" in the name that are NOT in the trash
+    Dim q As String = "name contains 'Geek God Ledger' and trashed = false"
+    Dim su As StringUtils
+    
+    ' Execute the API call
+    job.Download("https://www.googleapis.com/drive/v3/files?q=" & su.EncodeUrl(q, "UTF8"))
+    job.GetRequest.SetHeader("Authorization", "Bearer " & OAuth2.access_token)
+End Sub
+Architectural Analysis:The logic here implies a "convention over configuration" architecture. The application does not store the Ledger ID in a database; instead, it dynamically searches for it every time using the string literal "Geek God Ledger". This design choice eliminates the need for a local database synchronization but creates a fragility: if the spreadsheet is renamed on Google Drive, the application will fail to find the data.The use of TempProfile suggests that the application uses a Map object as a data transfer object (DTO) to hold client state during the asynchronous fetching process. The explicit initialization of RawTotalSpend to 0.0 ensures that the accumulation logic in later subroutines works correctly without type casting errors.4.1.2. Subroutine: ProcessNextLedgerSource Artifact: Copy) m4XMainPage.bas This subroutine implements a recursive queue pattern. Since a search might return multiple ledger files (e.g., one for 2024, one for 2025), this routine iterates through them one by one.VB.NetSub ProcessNextLedger
+    ' Base Case: If the queue is empty, we are done.
+    If LedgerQueue.Size = 0 Then
+        ' Finalize the data formatting
+        Dim total As Double = TempProfile.Get("RawTotalSpend")
+        TempProfile.Put("TotalSpend", NumberFormat2(total, 1, 2, 2, True))
+        TempProfile.Put("VisitCount", TempProfile.Get("RawVisitCount"))
+        TempProfile.Put("IssuesList", IssuesHistory)
+        
+        ' Pass the completed profile to the UI layer
+        CallSub2(SearchScreen, "ShowProfile", TempProfile)
+        Return
+    End If
+    
+    ' Recursive Step: Get the next ID and remove it from the queue
+    CurrentLedgerID = LedgerQueue.Get(0)
+    LedgerQueue.RemoveAt(0)
+    
+    ' Fetch Metadata for this specific spreadsheet
+    Dim job As HttpJob
+    job.Initialize("GetSheetMetadata", Me)
+    job.Tag = CurrentLedgerID
+    job.Download("https://sheets.googleapis.com/v4/spreadsheets/" & CurrentLedgerID)
+    job.GetRequest.SetHeader("Authorization", "Bearer " & OAuth2.access_token)
+End Sub
+Architectural Analysis:This routine bridges the gap between the "Search" phase and the "Fetch" phase. The critical insight here is the use of CallSub2. This indicates that the MainPage acts as a controller, and once the data processing is complete, it delegates the display logic to SearchScreen. This separation of concerns (Logic vs. UI) is a hallmark of the B4XPages architecture.The formatting logic (NumberFormat2) ensures that the raw double value (e.g., 150.5) is converted to a currency-friendly string (e.g., "150.50") before reaching the UI, ensuring display consistency.4.1.3. Subroutine: BatchFetchTabsSource Artifact: Copy) m4XMainPage.bas To avoid the performance penalty of fetching each sheet tab individually (which would result in dozens of HTTP round-trips), this subroutine constructs a "Batch Get" request.VB.NetSub BatchFetchTabs(Tabs As List, ledgerID As String)
+    Dim sb As StringBuilder
+    sb.Initialize
+    Dim su As StringUtils
+    
+    ' Iterate through all identified tabs to build the range query
+    For Each tabName As String In Tabs
+        Dim range As String = tabName & "!A:G"
+        sb.Append("&ranges=").Append(su.EncodeUrl(range, "UTF8"))
+    Next
+    
+    ' Execute the Batch Request
+    Dim job As HttpJob
+    job.Initialize("BatchGetLedger", Me)
+    job.Download("https://sheets.googleapis.com/v4/spreadsheets/" & ledgerID & "/values:batchGet?majorDimension=ROWS" & sb.ToString)
+    job.GetRequest.SetHeader("Authorization", "Bearer " & OAuth2.access_token)
+End Sub
+Architectural Analysis:The application specifically requests columns A:G (!A:G). This optimization reduces payload size by ignoring columns H and beyond, which presumably contain irrelevant data. The use of StringBuilder is a performance optimization for string concatenation in loop structures, vital for Android memory management when dealing with large numbers of tabs.4.1.4. Subroutine: BatchGetLedgerSource Artifact: Copy) m4XMainPage.bas This is the most complex data parsing routine recovered. It handles the raw JSON response from Google Sheets, extracts rows matching the client's name, and aggregates the financial totals.VB.NetSub BatchGetLedger(Job As HttpJob)
+    Dim parser As JSONParser
+    parser.Initialize(Job.GetString)
+    Dim rootMap As Map = parser.NextObject
+    Dim valueRanges As List = rootMap.Get("valueRanges")
+    
+    ' Retrieve current accumulation state
+    Dim currentSpend As Double = TempProfile.Get("RawTotalSpend")
+    Dim currentVisits As Int = TempProfile.Get("RawVisitCount")
+    Dim lastDateStr As String = TempProfile.Get("LastVisit")
+    Dim targetName As String = TempProfile.Get("Name").As(String).ToLowerCase
+    
+    ' Iterate through every sheet (range) returned
+    For Each rangeObj As Map In valueRanges
+        If rangeObj.ContainsKey("values") Then
+            Dim rows As List = rangeObj.Get("values")
+            For Each row As List In rows
+                If row.Size > 1 Then
+                    Dim rowName As String = row.Get(1) ' Column B: Client Name
+                    
+                    ' Fuzzy Match: Check if the row contains the target name
+                    If rowName.ToLowerCase.Contains(targetName) Then
+                        currentVisits = currentVisits + 1
+                        Dim dStr As String = row.Get(0) ' Column A: Date
+                        Dim issue As String = "General"
+                        Dim resolved As String = "N/A"
+                        Dim payment As String = "$0.00"
+                        
+                        ' Safe extraction of optional columns
+                        If row.Size > 4 Then issue = row.Get(4)      ' Column E
+                        If row.Size > 5 Then resolved = row.Get(5)   ' Column F
+                        If row.Size > 6 Then                         ' Column G
+                            payment = row.Get(6)
+                            ' Data Cleaning: Remove currency symbols for math
+                            Dim cleanPay As String = payment.Replace("$", "").Replace(",", "").Trim
+                            If IsNumber(cleanPay) Then currentSpend = currentSpend + cleanPay
+                        End If
+                        
+                        lastDateStr = dStr
+                        
+                        ' Build the History Log Item
+                        Dim historyItem As String = dStr & " - " & issue & " - " & resolved & " - " & payment
+                        IssuesHistory.InsertAt(0, historyItem)
+                    End If
+                End If
+            Next
+        End If
+    Next
+    
+    ' Update the accumulation state
+    TempProfile.Put("RawTotalSpend", currentSpend)
+    TempProfile.Put("RawVisitCount", currentVisits)
+    TempProfile.Put("LastVisit", lastDateStr)
+    
+    ' Trigger the next file in the queue
+    ProcessNextLedger
+End Sub
+Architectural Analysis:The parsing logic reveals the structure of the underlying Google Sheet:Column A (Index 0): Date of visit.Column B (Index 1): Client Name (used for matching).Column E (Index 4): The "Issue" reported.Column F (Index 5): Resolution status.Column G (Index 6): Payment amount.The code includes defensive programming, specifically If row.Size > 4 and If IsNumber(cleanPay). This is critical when dealing with user-generated spreadsheets where columns might be empty or contain text in numeric fields. The logic uses a Contains match (rowName.ToLowerCase.Contains(targetName)), which acts as a rudimentary fuzzy search. This means a search for "Mike" would match "Mike Smith" and "Big Mike," potentially aggregating data from multiple distinct clients if names are not unique.4.2. Contact and CRM LogicThe application extends beyond passive ledger reading to active contact management via the Google People API.4.2.1. Subroutine: SearchContactSource Artifact: Copy) m4XMainPage.bas VB.NetPublic Sub SearchContact(Query As String)
+    Log("Step 1: Searching Contacts for " & Query)
+    If OAuth2.access_token = "" Then
+        OAuth2.GetAccessToken
+        Return
+    End If
+    
+    CurrentSearchQuery = Query.ToLowerCase.Trim
+
+    Dim job As HttpJob
+    job.Initialize("SearchContact", Me)
+    ' Request a massive payload of fields
+    job.Download("https://people.googleapis.com/v1/people/me/connections?personFields=names,phoneNumbers,addresses,biographies,memberships&pageSize=1000")
+    job.GetRequest.SetHeader("Authorization", "Bearer " & OAuth2.access_token)
+End Sub
+Architectural Analysis:This routine requests pageSize=1000, attempting to fetch the user's entire address book in a single request. While simple, this is a scalability risk. If the user has 1,001 contacts, the API will paginate, and this code (as written) does not handle the nextPageToken. Consequently, clients beyond the first 1000 would be invisible to the app.4.2.2. Subroutine: UpdateGoogleContactSource Artifact: Copy) m4XMainPage.bas This complex routine constructs a JSON PATCH request to modify a contact on the server.VB.NetPublic Sub UpdateGoogleContact(Params As List)
+    Dim ResourceName As String = Params.Get(0)
+    Dim Etag As String = Params.Get(1)
+    Dim NewNotes As String = Params.Get(2)
+    Dim NewLabel As String = Params.Get(3)
+    
+    ' Map friendly labels to internal Group IDs
+    Dim targetGroupID As String = ""
+    Select NewLabel
+        Case "Blacklisted"
+            targetGroupID = Starter.GroupID_Blacklisted
+        Case "Preferred"
+            targetGroupID = Starter.GroupID_Preferred
+        Case Else
+            targetGroupID = Starter.GroupID_Client
+    End Select
+    
+    ' Build the JSON Payload
+    Dim personMap As Map
+    personMap.Initialize
+    personMap.Put("etag", Etag)
+    personMap.Put("biographies", Array(CreateMap("value": NewNotes, "contentType": "TEXT_PLAIN")))
+    
+    Dim fields As String = "biographies"
+    
+    ' Only add membership update if a group is defined
+    If targetGroupID <> "" Then
+        personMap.Put("memberships", Array(CreateMap("contactGroupMembership": CreateMap("contactGroupResourceName": targetGroupID))))
+        fields = fields & ",memberships"
+    End If
+    
+    Dim json As JSONGenerator
+    json.Initialize(personMap)
+    
+    Dim job As HttpJob
+    job.Initialize("UpdateContact", Me)
+    ' PATCH request with specific updatePersonFields
+    job.PatchString("https://people.googleapis.com/v1/" & ResourceName & ":updateContact?updatePersonFields=" & fields, json.ToString)
+    job.GetRequest.SetContentType("application/json")
+    job.GetRequest.SetHeader("Authorization", "Bearer " & OAuth2.access_token)
+End Sub
+Architectural Analysis:This logic handles the categorization of clients into "Blacklisted," "Preferred," or standard "Client" groups. It relies on global variables stored in the Starter service (Starter.GroupID_...). This implies that during the app's initialization (likely in CheckContactGroups which is referenced but missing), the app fetches and caches these Group IDs. The use of Etag is a critical concurrency control; if the contact was modified on another device (e.g., the web interface) since the app last fetched it, the API will reject this patch to prevent overwriting data.4.3. Adaptive UI and Layout Logic (The Foldable Engine)One of the most distinct features of this application is its explicit support for the Samsung Z Fold form factor. The recovered code shows a sophisticated, if manual, approach to responsive design.4.3.1. Subroutine: LayoutWatchdog_TickSource Artifact: OldWorkingCode.bas This subroutine is the "heartbeat" of the responsive layout system.VB.NetPrivate Sub LayoutWatchdog_Tick
+    ' Guard Clause: Ensure the root view exists
+    If Root.IsInitialized = False Then Return
+    
+    ' Get current physical dimensions
+    Dim RealWidth As Int = GetDeviceLayoutValues.Width
+    Dim RealHeight As Int = GetDeviceLayoutValues.Height
+    
+    ' Threshold Check: Only trigger if width changes by > 20 units
+    If Abs(RealWidth - LastAppliedWidth) > 20 Then
+        ' Force the layout to update with animation
+        Root.SetLayoutAnimated(0, 0, 0, RealWidth, RealHeight)
+        
+        ' Trigger the internal adjustment logic
+        AdjustLayout(RealWidth, RealHeight)
+    End If
+End Sub
+Architectural Analysis:Standard Android activities recreate themselves upon rotation or screen size change. However, B4XPages typically handle configuration changes internally to maintain state. On foldable devices, the screen width can change dynamically when the device is unfolded. This watchdog timer (running likely every 200-500ms) polls the dimensions. The > 20 threshold acts as a hysteresis filter to prevent jittering or infinite loops if the reported width fluctuates slightly by a pixel or two.4.3.2. Subroutine: AdjustLayout (Truncated)Source Artifacts: OldWorkingCode.bas , B4XMainPage.bak This is the most critical UI routine, yet it is partially truncated in all available backups. However, the recovered portion establishes the initialization safeguards.VB.NetPrivate Sub AdjustLayout(Width As Int, Height As Int)
+    Log("--- AdjustLayout Called --- Width: " & Width & " | Height: " & Height)
+
+    ' Debug Logging for Initialization Status
+    Log("Status Check: pnlStats=" & pnlStats.IsInitialized & " | List=" & lstTodayApts.IsInitialized & " | Spinner=" & spnChose.IsInitialized)
+
+    ' The Guard Clause: Prevent Crash if views are not ready
+    If pnlStats.IsInitialized = False Or lstTodayApts.IsInitialized = False Or spnChose.IsInitialized = False Then
+        Log("AdjustLayout ABORTED: One or more views are not initialized.")
+        Return
+    End If
+    
+    LastAppliedWidth = Width
+    
+    ' Calculate the anchor point for the list view
+    Dim HeaderBottom As Int = spnChose.Top + spnChose.Height
+    Log("HeaderBottom calculated at: " & HeaderBottom)
+    
+    ' Spy on the List Movement
+    Dim lv As B4XView = lstTodayApts.AsView
+    Log("List Parent Check: IsInitialized=" & lv.Parent.IsInitialized & " | Parent is Root? " & (lv.Parent = Root))
+    
+    '......
+End Sub
+Gap Analysis & Reconstruction Theory:The code cuts off right after logging the state of the lstTodayApts (List View). Based on the calculation of HeaderBottom, the missing code almost certainly sets the Top, Left, Width, and Height properties of the pnlStats (Statistics Panel) and lstTodayApts to fit the remaining screen real estate. The presence of the AdjustLayout call inside LayoutWatchdog confirms that this routine is responsible for the physical repositioning of elements when the device folds or unfolds.4.3.3. Subroutine: ime_HeightChangedSource Artifact: Copy) m4XMainPage.bas This handles the onscreen keyboard (IME) interactions.VB.NetSub ime_HeightChanged (NewHeight As Int, OldHeight As Int)
+    ' This moves the popup card in the SearchPage when the keyboard opens
+    CallSub3(SearchScreen, "AdjustForKeyboard", NewHeight, Root.Height)
+End Sub
+Architectural Analysis:This is a classic mobile development problem: the keyboard covers the input field. The MainPage captures this global event but delegates the actual UI movement to the SearchScreen via CallSub3. This confirms that the SearchScreen is a child of the MainPage but maintains its own layout logic.4.4. Security and Identity LogicThe application employs a robust, if manually implemented, identity and security layer.4.4.1. Subroutine: OAuth2_AccessTokenAvailableSource Artifact: Copy) m4XMainPage.bas VB.NetSub OAuth2_AccessTokenAvailable(Success As Boolean, Token As String)
+    Log("Event: AccessTokenAvailable. Success=" & Success)
+    If Success Then
+        lblStatus.Text = "Status: Ready"
+        ' Critical missing subroutine call identified here:
+        CheckContactGroups
+    Else
+        lblStatus.Text = "Status: Disconnected"
+    End If
+End Sub
+Architectural Analysis:This callback is the gateway to the app. Until Success is true, the API keys (Token) are invalid, and the app effectively runs in offline mode. The reference to CheckContactGroups (which is not found in the code snippets) suggests a missing routine that likely downloads the "Blacklisted" vs "Preferred" group IDs mentioned in UpdateGoogleContact.4.4.2. Subroutine: ShowUserSelectionSource Artifact: Copy) m4XMainPage.bas VB.NetSub ShowUserSelection
+    Dim options As List
+    options.Initialize
+    ' Hardcoded device-user mapping
+    options.AddAll(Array As String("Mike (ZFold)", "Erin (S23)"))
+    
+    ' Async Dialog
+    InputListAsync(options, "Who is using this device?", -1, False)
+    Wait For InputList_Result (Index As Int)
+    
+    Dim selectedUser As String
+    If Index = 0 Then selectedUser = "Mike" Else selectedUser = "Erin"
+    
+    ' Persistence
+    appSettings.Put("CurrentUser", selectedUser)
+    File.WriteMap(File.DirInternal, "settings.map", appSettings)
+End Sub
+Architectural Analysis:This routine, coupled with DetectUserIdentity (from B4XMainPageNewCurrentCode.bas), enforces a strict two-user policy. The system is hardcoded for "Mike" (using a ZFold) and "Erin" (using an S23). This tight coupling between hardware and user identity is unusual for commercial software but typical for bespoke internal tools. The use of Wait For creates a non-blocking pause, allowing the rest of the UI thread to remain responsive while the user makes a selection.4.5. The "JobDone" Network HandlerSource Artifact: Copy) m4XMainPage.bas The JobDone subroutine is the universal receiver for all API calls initiated by HttpJob. While the provided snippet is truncated, its structure is standard for B4X applications.VB.NetSub JobDone(Job As HttpJob)
+    If Job.Success = False Then
+        Log("API Error (" & Job.JobName & "): " & Job.ErrorMessage)
+        Job.Release
+        Return
+    End If
+    
+    ' Truncated Logic Section
+    ' Standard pattern follows:
+    ' Select Job.JobName
+    '    Case "SearchLedgerFiles"
+    '       ... parse drive files...
+    '    Case "GetSheetMetadata"
+    '       ... parse sheets...
+    ' End Select
+    ' Job.Release
+End Sub
+Restoration Note:Although the body is missing, we can infer the contents based on the Job.Initialize calls found in other subroutines. The Select Case structure must handle:"SearchLedgerFiles" -> Parses the JSON list of files and populates LedgerQueue."GetSheetMetadata" -> Parses the sheet names and calls BatchFetchTabs."BatchGetLedger" -> Calls BatchGetLedger(Job)."SearchContact" -> Parses the People API response."UpdateContact" -> Confirms the edit was successful.5. Gap Analysis and Remaining RisksDespite the successful recovery of approximately 95% of the logic, specific gaps remain that require developer attention during the recompilation phase.5.1. The "GenerateSmartLedger" VoidThe event handler btnCreateLedger_Click  explicitly calls GenerateSmartLedger. However, this subroutine is not present in any of the four provided backup files.Hypothesis: This logic likely resides in a separate class module (perhaps CloseOut or a utility class) that was not included in the dump.Impact: Without this routine, the "Create Ledger" button will crash the application.5.2. Truncated Layout LogicThe AdjustLayout subroutine is missing its functional body.Impact: The application will launch, but the UI elements (Statistics Panel, Appointment List) will likely be piled on top of each other at coordinates (0,0) or remain in their design-time positions, failing to adapt to the screen size.Remediation: The logic needs to be rewritten using the HeaderBottom variable to vertically stack the pnlStats and lstTodayApts.5.3. Missing Group ID InitializationThe UpdateGoogleContact routine relies on Starter.GroupID_Blacklisted, etc. The code to fetch these IDs from the Google API (referenced as CheckContactGroups) is missing.Impact: Attempting to update a contact's group will fail or default to an empty string, causing API errors.6. ConclusionThe forensic analysis of the "Geek God" CRM codebase reveals a sophisticated, custom-built application tailored for a specific operational workflow involving two distinct user personas and hardware profiles. The application leverages advanced B4X features including ResumableSubs (Wait For), HttpJob for RESTful integration, and B4XPages for state management.By combining the logic from Copy) m4XMainPage.bas (which contained the deep API logic) and OldWorkingCode.bas (which contained the critical layout stability timers), we have synthesized a restoration plan that recovers the vast majority of the lost functionality. The remaining gaps are identifiable and can be reconstructed using the architectural patterns established in the recovered code.This report serves as the blueprint for the immediate reassembly of the application. The recommended next step is to paste the "Recovered Source Code" sections into a fresh B4XMainPage.bas file, keeping the Initialize and B4XPage_Created from the "NewCurrentCode" file as the base structure.
+
+
+
+_________________________________________________________________________
+
+After the restoration, I have not been able in all this time to find a reliable way of detecting my phone in the open or closed position and having the applicaton resize accordingly. It has never worked right.
+I had an AI do deep resarch on several pages I found that discussed the topic and had it write for me a report on what it was able to glean to accomplish this task once and for all.
+
+Below is that report:
+
+Programmatic Detection of Foldable Device States in Basic4Android (B4A) via Jetpack WindowManager1. The Paradigm Shift in Mobile Display ArchitectureThe mobile computing landscape has undergone a radical transformation with the introduction and commercial maturation of foldable devices. Led by Samsung’s Galaxy Z Fold and Z Flip series, this hardware category challenges the foundational assumptions of mobile application development. Historically, the "screen" was an immutable physical constant—a rigid rectangle with fixed dimensions, pixel density, and aspect ratio. Developers could safely assume that DisplayMetrics retrieved at application launch would remain valid throughout the session, or at most, swap between two fixed states (Portrait and Landscape) upon rotation.The foldable device dismantles this static model. The display is now a dynamic topological surface capable of altering its physical geometry, logical coordinate space, and user interaction model in real-time. This shift necessitates a move from "responsive" design—which largely meant adapting to different static screen sizes—to "adaptive" continuity, where an application must flow seamlessly between physical states without losing context or user intent.1.1. The Biology of the Fold: Hardware to SoftwareTo understand the software challenge, one must first appreciate the hardware reality. A device like the Samsung Galaxy Z Fold 5 is not simply a phone that gets wider. It is a device that transitions between distinct "postures." The hinge mechanism is equipped with highly precise Hall effect sensors and gyroscopes that measure the angle between the two display halves.However, the raw data from these sensors is noisy. A user holding the device might naturally fluctuate the angle between 175° and 180°. If the software were to react to raw sensor data, the UI would flicker uncontrollably between "Flat" and "Folded" states. Furthermore, the physical hinge is not the only variable; the "fold" in software terms is defined by the occlusion of content or the separation of logical touch areas. On the Microsoft Surface Duo, the fold is a physical gap (occlusion) of 84 pixels. On the Samsung Z Fold, the fold is a continuous surface with a visible crease but no pixel loss.This hardware fragmentation created an urgent need for a unified software abstraction. In the early days (circa 2019), OEMs exposed custom, proprietary APIs. Samsung had its own SDK, Microsoft had another, and Huawei a third. This "API hell" made cross-device development nearly impossible. Google’s response was the Jetpack WindowManager library (androidx.window), a unified API surface that abstracts the underlying hardware differences into a standardized set of semantic states.1.2. The Significance of Posture DetectionFor a Basic4Android (B4A) developer, detecting these states is not merely about resizing a layout. It is about unlocking the unique utility of the form factor.Tabletop Mode (Half-Open Horizontal): A device sitting on a desk at 90° acts like a mini-laptop. The app should react by placing content (video, text) on the top half and controls (keyboard, playback buttons) on the bottom half.Book Mode (Half-Open Vertical): A device held like a paperback. A reading app should split text into two columns, mimicking pages, rather than stretching one line across the crease.Flex Mode (Samsung Specific): This is Samsung’s marketing term for the system-level behaviors triggered by the HALF_OPENED state. If an app does not strictly handle this, OneUI (Samsung's Android skin) may force its own generic controls, disrupting the app's native experience.The urgency of the user's request stems from this reality: standard detection methods fail to distinguish these nuances. A "width change" event could be a fold, but it could also be a split-screen activation, a floating window resize, or a rotation. Only by querying the specific posture can the application react correctly.2. The Failure of Web-Based Heuristics in Native WrappersThe user's original query highlights a critical pain point: "We are having a hard time detecting fold/unfold events in a B4A application with inline JavaScript." This is a common but ultimately doomed approach in the hybrid app ecosystem. To understand why the native solution is non-negotiable, we must deeply analyze the failure modes of the web-based approach.2.1. The WebView Viewport IllusionIn a hybrid B4A app, the UI is often rendered within a WebView component. Developers accustomed to web technologies naturally reach for JavaScript solutions like window.matchMedia or window.innerWidth to detect changes.The fundamental problem lies in the decoupling of the Layout Viewport from the Visual Viewport.The Layout Viewport: This is the canvas the browser draws onto. Its size is determined by the <meta name="viewport"> tag.The Visual Viewport: This is what the user actually sees.When a Samsung Z Fold transitions from folded (cover screen) to unfolded (main screen), the physical screen width effectively doubles. However, the WebView component inside the Android View hierarchy does not strictly "resize" in the way a desktop browser window does. The Android Activity configuration change destroys and recreates the Activity (by default), or, if configChanges is intercepted, the View hierarchy goes through a complex invalidation pass.During this transition, there is a race condition. The JavaScript engine inside the WebView may fire a resize event based on the intermediate state of the animation, or it may retain the cached viewport width of the cover screen until the layout pass is fully settled. Consequently, inline JavaScript often reports the old width (320px or 360px) milliseconds after the device has already unfolded to 600px+.2.2. The Inadequacy of CSS Media QueriesRecent proposals for CSS Media Queries Level 5 include "Screen Spanning" features (@media (spanning: single-fold-vertical)). However, these standards are still in draft status and implementation varies wildly across WebView versions (Chrome, System WebView, Samsung Internet).Samsung's WebView Implementation: Samsung devices use a specific implementation of the System WebView. While standard Chrome might support experimental foldable APIs, the embedded WebView used by B4A apps often lags behind or requires specific manifest flags (android:resizeableActivity="true") to even acknowledge that the screen size can change.Pixel Density Confusion: Foldable screens often have different pixel densities on the cover screen versus the main screen. JavaScript's window.devicePixelRatio changes during the fold. If the B4A app does not handle the density change natively, the WebView might scale the content incorrectly, reporting a logical width that suggests a phone even when on the tablet-sized inner screen.2.3. Why "Inline JavaScript" Cannot Detect PostureEven if the resize event were perfectly reliable, it suffers from a semantic deficit. A resize event tells the code: "The screen is now 800px wide." It does not tell the code: "The screen is bent at 90 degrees."A Samsung Z Fold 5 in "Tabletop Mode" (bent 90°) has the exact same viewport resolution as a Z Fold 5 that is fully flat but displaying a split-screen app on the top half.JavaScript: Sees width=800, height=400.Reality:Scenario A: Flat screen, split window. (Safe to draw across the middle).Scenario B: Bent screen, Tabletop. (Unsafe to draw across the middle; it's the crease).JavaScript in a standard WebView has no access to the Hardware Sensor Manager or the WindowManager's FoldingFeature data. Therefore, it is physically impossible for inline JavaScript to distinguish between "Small Window" and "Bent Screen." This necessitates the native B4A/Java solution.3. Android's Native Response: The Jetpack WindowManager LibraryThe solution to the limitations of sensors and web views is the Jetpack WindowManager. This library is the canonical source of truth for modern Android form factors.3.1. Architecture of androidx.windowThe library operates on a client-server model.The Server (Extensions): The "Sidecar" or "Extensions" module (androidx.window.extensions) is a vendor-specific library pre-installed on the device by the OEM (Samsung). It has privileged access to the hardware drivers and hinge sensors.The Client (Jetpack Library): The app includes the androidx.window library. This library connects to the OEM Extensions, normalizes the data, and exposes it to the developer.This separation is crucial. It means that code written using Jetpack WindowManager on a Samsung device will work seamlessly on a Google Pixel Fold or a Motorola Razr, because the library handles the translation of proprietary sensor data into standard "Features."3.2. Data Structures: WindowLayoutInfo & FoldingFeatureThe core unit of information is the WindowLayoutInfo object. Unlike legacy metrics which described the whole screen, this object describes the window's relationship to the display features.The WindowLayoutInfo contains a list of DisplayFeature objects. The most relevant implementation is FoldingFeature.
+Key Attributes of FoldingFeature :Bounds (Rect): The coordinate rectangle of the fold. On a Z Fold, the height might be full-screen, but the width might be 0 (a hairline crease). On a Surface Duo, the width is significant (the bezel gap).State (FoldingFeature.State):FLAT: The feature is present but the device is fully open. (Note: On some devices, a generic "flat" state might result in an empty list of features, implying continuity).HALF_OPENED: The critical state for "Flex Mode." The hinge is angled.Orientation (FoldingFeature.Orientation):HORIZONTAL: The fold runs left-to-right (Clamshell/Laptop style).VERTICAL: The fold runs top-to-bottom (Book style).OcclusionType:NONE: The screen is continuous (Samsung).FULL: The screen is physically separated (Surface Duo).isSeparating: A derived boolean. If TRUE, the UI should logically split. This is true for HALF_OPENED states or OcclusionType.FULL.3.3. The Observable PatternUnlike DisplayMetrics which are pulled synchronously, WindowLayoutInfo is pushed asynchronously. The state of the fold can change at any millisecond. Therefore, the API does not offer a getFoldState() method. Instead, it offers a registerListener or Flow pattern. The application subscribes to updates, and the WindowManager fires a callback whenever the physical geometry changes.4. The Interoperability Crisis: Kotlin vs. Legacy Java EnvironmentsThe user's requirement is to implement this in Basic4Android (B4A). This introduces a significant interoperability barrier that is not present in standard Android Studio development.4.1. The Kotlin-First StrategySince 2019, Google has adopted a "Kotlin First" strategy for Jetpack libraries. The androidx.window library is written in Kotlin. Its primary API surface utilizes Kotlin Coroutines and Flows.The Problem: B4A's "Inline Java" functionality utilizes a standard Java compiler (javac). It does not have access to the Kotlin runtime or Coroutine scopes. A B4A developer cannot write lifecycleScope.launch {... } inside an #If JAVA block.The Symptom: Attempting to use the standard WindowInfoTracker.getOrCreate(context).windowLayoutInfo(activity) method from Java results in a compilation error because the return type is a Flow, a type that is effectively alien to a standard Java 7/8 environment without massive dependency overhead.4.2. B4A's Architecture and "Desugaring"B4A wraps the Android SDK but maintains a simplified, procedural language structure. When "Inline Java" is used, the B4A compiler inserts that code into the generated Java source files before compilation.However, the androidx.window library (and its dependencies) utilizes Java 8 bytecode features (Default Interface Methods, Lambdas). Older Android devices (pre-API 24) and older compiler toolchains do not support these features natively. This process is called "Desugaring"—rewriting modern bytecode to be compatible with older VMs.If a B4A user creates a wrapper for androidx.window but fails to enable Desugaring or fails to include the correct core libraries, the app will crash at runtime with AbstractMethodError or NoClassDefFoundError when the WindowManager tries to invoke a callback. This is a frequent stumbling block for B4A developers trying to "copy-paste" Java code from StackOverflow.4.3. The Solution: androidx.window:window-javaTo support the vast ecosystem of Java-based apps (and game engines like Unity), Google released a specific artifact: androidx.window:window-java.This library is the "Rosetta Stone" for B4A developers. It provides a class named WindowInfoTrackerCallbackAdapter.Function: It wraps the Kotlin Flow.Exposure: It exposes addWindowLayoutInfoListener which accepts a standard Java Consumer<WindowLayoutInfo> and an Executor.Impact: This allows B4A developers to write pure, standard Java 7/8 code to interact with the modern foldable API, completely bypassing the need for Kotlin Coroutines.5. Architectural Solution: The Callback Adapter PatternTo satisfy the user's request for a "B4A coding agent prompt," we must first architect the exact Java solution that the agent will be instructed to generate. This solution uses the Callback Adapter Pattern.5.1. The ComponentsThe solution requires three distinct components interacting within the B4A Inline Java block:The Lifecycle Manager: A class (e.g., FoldableListener) that ties the listener to the Activity's lifecycle (onStart / onStop). This is critical; failing to unregister the listener leads to memory leaks and crashes when the Activity is destroyed on rotation (if not handled).The Main Thread Executor: The WindowManager requires an Executor to determine where to run the callback. Since B4A is single-threaded (UI thread driven), we must provide an executor that posts runnables to the Main Looper.The Consumer: The callback itself, which receives the data, parses the FoldingFeature, and dispatches the event back to the B4A layer.5.2. Detailed Analysis of the MainThreadExecutorIn standard Java concurrent programming, one might use Executors.newSingleThreadExecutor(). However, using a background thread for this task is dangerous in B4A. If the callback fires on a background thread, and the developer tries to update a B4A Label or Panel immediately, the app will crash with CalledFromWrongThreadException.The safe implementation, validated by snippets  and , is to define a custom executor that wraps an Android Handler:Javapublic class MainThreadExecutor implements java.util.concurrent.Executor {
+   private final android.os.Handler handler = new android.os.Handler(android.os.Looper.getMainLooper());
+   @Override
+   public void execute(Runnable command) {
+      handler.post(command);
+   }
+}
+This guarantees that the accept() method of our listener runs on the UI thread, allowing seamless interaction with B4A's ecosystem.5.3. The processBA.raiseEventFromUI MechanismThe bridge between the Inline Java and the B4A code is the BA object (Basic4Android Context). The method raiseEventFromUI is specifically designed for this asynchronous callback scenario.Signature: raiseEventFromUI(Object sender, String eventName, Object... params)Usage: When FoldingFeature detects a change (e.g., state becomes HALF_OPENED), the Java code calls processBA.raiseEventFromUI(this, "foldstatechanged", "HALF_OPENED", "HORIZONTAL").Effect: This places the event in the main message queue. B4A picks it up and executes the Sub FoldStateChanged(State As String, Orientation As String) defined in the Basic code.6. Basic4Android Implementation SpecificsThis section details the specific coding constructs required for the B4A environment, focusing on the #AdditionalJar dependencies and the Inline Java structure.6.1. Dependency DeclarationThe user must instruct the B4A compiler to link against the external AARs (Android Archives). This is done via #AdditionalJar.
+Based on the research , the following dependencies are strictly required:Basic#AdditionalJar: androidx.window:window
+#AdditionalJar: androidx.window:window-java
+#AdditionalJar: androidx.core:core
+#AdditionalJar: kotlinx-coroutines-core
+#AdditionalJar: kotlinx-coroutines-android
+Note: Even though we are writing Java, the underlying library depends on Kotlin coroutines, so those JARs must be present in the classpath for the linker to succeed, even if we don't write Kotlin code directly.6.2. The Inline Java Class StructureThe code must be encapsulated in a class to manage state. A simple static method is insufficient because we need to hold a reference to the WindowInfoTracker to unregister it later.Proposed Class: FoldableListenerFields:private WindowInfoTrackerCallbackAdapter adapter;private Activity activity;private Consumer<WindowLayoutInfo> layoutConsumer;private BA processBA;private String eventName;Constructor: Initializes the fields and creates the MainThreadExecutor.Method start(): Calls adapter.addWindowLayoutInfoListener(activity, executor, layoutConsumer). This should be called from Activity_Resume.Method stop(): Calls adapter.removeWindowLayoutInfoListener(layoutConsumer). This should be called from Activity_Pause.6.3. Parsing the Feature ListThe accept method receives WindowLayoutInfo. The parsing logic must be robust:Java// Conceptual Logic
+List<DisplayFeature> features = newLayoutInfo.getDisplayFeatures();
+String state = "FLAT";
+String orientation = "NONE";
+
+for (DisplayFeature feature : features) {
+    if (feature instanceof FoldingFeature) {
+        FoldingFeature fold = (FoldingFeature) feature;
+        // Map Enum to String
+        if (fold.getState() == FoldingFeature.State.HALF_OPENED) state = "HALF_OPENED";
+        if (fold.getOrientation() == FoldingFeature.Orientation.VERTICAL) orientation = "VERTICAL";
+        else orientation = "HORIZONTAL";
+    }
+}
+// Raise Event
+processBA.raiseEventFromUI(this, eventName + "_statechanged", state, orientation);
+This logic normalizes the complex object graph into simple Strings that B4A can easily consume.7. Samsung OneUI and Edge CasesThe generic API implementation described above must be stress-tested against the specific behaviors of Samsung's OneUI.7.1. Flex Mode vs. Generic Half-OpenSamsung's "Flex Mode" is the system-level response to FoldingFeature.State.HALF_OPENED. When this state is detected, OneUI may attempt to shift the application window.The "Resizeable" Requirement: For the WindowManager API to function correctly on a Z Fold, the app must be declared as resizeable in the manifest.
+SetActivityAttribute(Main, android:resizeableActivity, "true")
+If this is set to false, the app will run in "Compatibility Mode" (black bars), and the WindowManager might never report a fold feature because the window itself is not interacting with the fold—it's just a static rectangle floating in the middle of the screen.7.2. Multi-Window ComplexityOn a Z Fold 5, a user can run three apps simultaneously.Scenario: B4A app is in the top-right quadrant.Physical State: Device is folded 90° (Tabletop).API Report: The WindowManager will report NO folding features for the B4A app.Why? The fold runs horizontally across the screen, but the app window (top-right) might be entirely above the fold. Therefore, the fold does not intersect the window bounds.Correct Interpretation: The app should behave as if on a flat screen. The B4A logic must handle an empty getDisplayFeatures() list as a valid state (Flat), not an error.7.3. App ContinuityWhen the user unfolds the device, the Activity is usually recreated. The WindowInfoTracker must be re-initialized immediately in Activity_Create or Activity_Resume. If the developer relies on FirstTime logic in B4A (If FirstTime Then...), the listener might fail to re-attach after the fold-unfold transition. The listener registration must be tied to the current Activity instance, which changes on fold.8. Conclusion and Strategic RoadmapThe transition from standard smartphone development to foldable development requires a fundamental shift in how we perceive the display. For B4A developers, this is compounded by the shift from Java to Kotlin in the underlying Android SDK.The web-based heuristics (inline JavaScript) that served developers in the past for simple resizing are demonstrably inadequate for posture detection due to the decoupling of visual and layout viewports and the lack of hardware sensor access in standard WebViews.The exhaustive analysis confirms that the only professional-grade solution is the integration of the Jetpack WindowManager library using the Java Callback Adapter. This approach:Bypasses Kotlin Flows: Uses standard Java Consumers.Ensures Thread Safety: Uses a custom MainThreadExecutor.Provides Semantic Accuracy: Distinguishes between "Tabletop" and "Book" modes.Aligns with OEM Standards: Works on Samsung, Pixel, and Surface devices uniformly.By implementing the FoldableListener class detailed in the subsequent prompt, B4A developers can reliably detect "Flex Mode" and adapt their UI logic (e.g., splitting layouts) to provide the continuity that users expect from premium foldable hardware.9. Prompt for B4A Coding AgentContext:You are an expert Basic4Android (B4A) developer specializing in Android Java interoperability (JNI/Inline Java). The user is developing an app for Samsung Foldable devices (Z Fold/Flip) and needs to programmatically detect the "Fold State" (e.g., Flat vs. Flex Mode/Half-Open). The user has attempted to use Inline JavaScript in a WebView but found it unreliable. You must provide a native Java solution using the Jetpack WindowManager library, specifically adapted for B4A's limited Java 8 environment.Task:Generate a complete, copy-paste ready B4A code module that implements the androidx.window library to detect fold events.Technical Requirements:Dependencies (Maven Coordinates):You MUST specify the exact #AdditionalJar directives required. Crucially, you must include:androidx.window:window:1.1.0 (or newer)androidx.window:window-java:1.1.0 (MANDATORY: This contains the WindowInfoTrackerCallbackAdapter needed to avoid Kotlin syntax).androidx.core:core (To support the Consumer interface).kotlinx-coroutines-core (Required runtime dependency).Inline Java Class (FoldableListener):Write a Java class inside an #If JAVA block that encapsulates the complexity.Imports: Include androidx.window.layout.*, androidx.window.java.layout.*, java.util.concurrent.*, android.os.*.Executor: You MUST implement a custom MainThreadExecutor class inside the Java block. Use new Handler(Looper.getMainLooper()) to implement the execute method. Reason: Passing a background executor will crash B4A when raising events.Listener Registration: Use WindowInfoTrackerCallbackAdapter to register a listener.Method: addWindowLayoutInfoListener(Activity activity, Executor executor, Consumer<WindowLayoutInfo> consumer).Consumer Implementation: Implement androidx.core.util.Consumer<WindowLayoutInfo>.Note: If targeting Android 13+ APIs explicitly, check if java.util.function.Consumer is needed, but default to androidx.core.util.Consumer for maximum B4A compatibility.Fold Logic:Inside the accept(WindowLayoutInfo info) method:Iterate through info.getDisplayFeatures().Check if (feature instanceof FoldingFeature).Extract State: FLAT or HALF_OPENED.Extract Orientation: HORIZONTAL or VERTICAL.Logic Mapping:HALF_OPENED + HORIZONTAL = "TABLETOP"HALF_OPENED + VERTICAL = "BOOK"FLAT (or empty list) = "FLAT"Event Dispatch: Use processBA.raiseEventFromUI(this, "foldstatechanged", stateString, orientationString, isSeparatingBoolean) to send data back to B4A.Lifecycle Management:Provide a Start(Activity activity) method (to be called in Activity_Resume).Provide a Stop() method (to be called in Activity_Pause). This is critical to prevent memory leaks.B4A Integration Code:Show the B4A Sub Globals declaration: Private FoldDetector As JavaObject.Show the Activity_Create initialization.Show the B4A event handler: Sub FoldStateChanged(State As String, Orientation As String, IsSeparating As Boolean).Output Style:Use standard B4A syntax for the wrapper.Use pure Java 7/8 syntax for the Inline Java (No -> lambdas if possible, use anonymous inner classes new Consumer<...>() {... } to ensure maximum compatibility with older B4A compilers, or explicitly note that Java 8 desugaring must be enabled).Add comments explaining why window-java is used (to bypass Kotlin Flows).Persona:Senior Android Systems Architect. Technical, precise, and practical.Confidence Score: 5/5
+
+
+
+UpdatePROJECT SUMMARY LOG: GEEK GOD CRM
+=============================================================================
+PROJECT LEAD:       Michael (The Geek God)
+DEVELOPER:          Rufus III
+CURRENT DATE:       February 2, 2026
+STATUS:             Phase 7 Active - Stability & Refinement (Fold/Sound/Resize Fixed)
+PLATFORM:           Android (B4A)
+TARGET DEVICES:     Samsung ZFold (Mike), Samsung S24 (Erin)
+=============================================================================
+
+[OBJECTIVE]
+Create a custom CRM to automate client intake via visual voicemail scraping, 
+manage appointments via a custom Google Calendar interface, track business 
+metrics via Google Sheets, and manage expenses via OCR/Cloud Storage.
+
+[CRITICAL TECHNICAL NOTES - DO NOT LOSE]
+-----------------------------------------------------------------------------
+Package Name:           Geek.God.CRM.App (Case Sensitive)
+Redirect URI Scheme:    geek.god.crm.app
+Redirect URI Full:      geek.god.crm.app:/oauth2redirect
+
+> API CREDENTIALS (VERIFIED & ACTIVE)
+Client ID (Android):    1077575612876-0lgv0dhcu1956b75n80gfs9t0djn2a5c.apps.googleusercontent.com
+Maps/Places API Key:    AIzaSyAVOMjr8iK5af4oj2xjZntrKH6ec2lpvR4
+Spreadsheet ID (Main):  [Dynamic - Stored in Internal/ledger_id_2026.txt]
+Spreadsheet (Template): 1-8id4XZafXRqRyE1ryhqhDy5oewghrDY
+
+> FOLDABLE DEVICE STRATEGY (FINALIZED FEB 2026)
+Library:                androidx.window:window-java:1.2.0 (Jetpack)
+Listener Implementation: Inline Java (Section S02). 
+Critical Fix:           Java method must accept raw `View`, not `B4XViewWrapper`.
+States Detected:        FLAT (Open), HALF_OPENED (Tabletop/L-Shape).
+Resize Logic:           Hybrid. Checks Screen Width (>1300/>850) AND Sensor State.
+
+> ASSET REQUIREMENTS
+Fonts:                  Located in Assets. Filenames must match S02 Smart Loader.
+Sounds:                 01.wav through 150.wav. Loaded Asynchronously in S11.
+Video Splash:           REMOVED from S01 to prevent main thread ANR/Socket crashes.
+
+=============================================================================
+[MODULE BREAKDOWN: B4XMainPage]
+=============================================================================
+
+SECTION S01: GLOBAL DECLARATIONS & STARTUP
+* Status: STABLE. 
+* Logic: Initialize > SetupFontSystem > LoadSounds > OAuth > StartFoldListener.
+* Resize Fix: Added Null-Safety check `If B4XPages.GetManager.GetTopPage = Null Return` to prevent startup crash.
+* Splash: VideoView (`vvSplash`) logic bypassed to fix B4A Bridge `SocketException`.
+
+SECTION S02: FONT & IDENTITY ENGINE
+* Status: FINALIZED.
+* Fonts: Smart Loader handles filenames with or without spaces (Self-healing).
+* Identity: Detects "Mike" (Fold) vs "Erin" (S24) based on resolution.
+* Fold Listener: Java reflection implementation. Now properly unregisters `stop()` before starting to prevent duplicate listeners.
+
+SECTION S03: PERMISSIONS & MASTER RESIZE ENGINE
+* Status: CORRECTED.
+* Logic: Replicated `AppointmentPage` logic.
+    - Width > 1300: Wide Mode (Tabletop/Desktop).
+    - Width > 850: Tall Mode.
+    - Else: Compact Mode.
+    - Override: If Sensor = HALF_OPENED, Force Compact Mode.
+* Syntax Fix: Removed escaped quotes in CSBuilder logic.
+
+SECTION S04: BOOKING & SEARCH ROUTER
+* Status: FUNCTIONAL.
+* Logic: "Traffic Cop" handles merging selected Time Slots (from Calendar) with selected Clients (from Search).
+
+SECTION S05: DASHBOARD UI GENERATOR
+* Status: FUNCTIONAL.
+* Logic: Dynamic CLV generation. Shows "Arrival" buttons.
+* UI: Uses FontAwesome and Custom Fonts for card details.
+
+SECTION S06: CONTACT GROUPS & VOICEMAIL SCRAPER
+* Status: FUNCTIONAL.
+* Logic: Reads .eml files from VisualVoiceMail directory.
+* Identity Shield: Filters out "Mike", "Geek", "Erin" to prevent self-scraping.
+
+SECTION S07: EXPENSE MODULE & CLOSEOUT CHAIN
+* Status: FUNCTIONAL.
+* Logic: Long-click "Close Out" trigger. 
+* Features: Camera intent -> Google Vision OCR -> Sheet Append.
+
+SECTION S08: SEARCH HANDLERS & LEDGER QUEUE
+* Status: FUNCTIONAL.
+* Logic: Levenshtein distance for fuzzy searching Google Contacts.
+
+SECTION S09: LEDGER GENERATION & UI ACTIONS
+* Status: FUNCTIONAL.
+* Logic: Automates creating new yearly Google Sheets from Master Template.
+
+SECTION S10: CONTACT MANAGEMENT & CALENDAR HELPERS
+* Status: FUNCTIONAL.
+* Logic: Helper routines for RFC3339 dates and People API patching.
+
+SECTION S11: UTILITIES & SOUND ENGINE
+* Status: UPDATED (Feb 2026).
+* Logic: `LoadSounds` now runs a loop for `01.wav` to `150.wav`.
+* Performance: Uses `Sleep(0)` inside the loop to prevent UI freeze during asset loading.
+* Geo: Geocoding and "DistanceTo" logic for Arrival buttons.
+
+SECTION S12: SCRAPE UI (POPUP DIALOG)
+* Status: FUNCTIONAL.
+* Logic: Custom overlay with Audio Player (Seekbar/Play/Stop) and field editing.
+
+SECTION S13: SCRAPER TRAFFIC COP & CLIPBOARD
+* Status: FUNCTIONAL.
+* Logic: Checks for existing clients before creating new ones from scraped data.
+
+SECTION S14: MASTER JOB HANDLER
+* Status: FUNCTIONAL.
+* Logic: Central `JobDone` router for all HTTP requests.
+
+SECTION S15: GESTURE ENGINE
+* Status: FUNCTIONAL.
+* Logic: Linear Accelerometer "Chop" detection to toggle Flashlight.
+* Java: Uses Camera2 API for Torch Mode.
+
+=============================================================================
+[RECENT CHANGE LOG]
+=============================================================================
+1.  **Startup Crash Resolved:** Identified that loading 187 assets (video + sounds) on the main thread caused B4A Bridge to timeout (`SocketException`). Moved Sound loading to Async loop and removed Video Splash.
+2.  **Fold Listener Fixed:** The Java `ClassCastException` was solved by casting the B4XView object to a raw Android `View` inside the inline Java code. Listener now correctly reports FLAT/HALF_OPENED.
+3.  **Resize Logic Aligned:** B4XMainPage now uses the exact same width thresholds as `AppointmentPage`, ensuring consistent behavior across the app.
+4.  **Audio Engine:** Now correctly loads the specific 150 WAV files required for the "Chaos Sound" feature.
+
+[NEXT IMMEDIATE STEPS]
+1.  Verify "Chaos Sound" triggers correctly on button presses/events.
+2.  Test "Expense OCR" workflow on the S24 (Erin's device).
+3.  Perform full "Close Out" walkthrough to ensure SMS and Calendar Sync fire correctly.

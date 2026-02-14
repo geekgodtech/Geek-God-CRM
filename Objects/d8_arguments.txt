@@ -1,0 +1,251 @@
+--release
+--output
+C:\My Projects\Geek God CRM\B4A\Objects
+--lib
+C:\android\platforms\android-36\android.jar
+--min-api
+21
+C:\android\tools\..\extras\b4a_local\unpacked-b4ashared-63888276286000\dex_v1\b4ashared.zip
+c:\android\tools\..\extras\b4a_remote\androidx\core\core\1.16.0\unpacked-core-1.16.0\jars\classes.zip
+c:\android\tools\..\extras\b4a_remote\androidx\versionedparcelable\versionedparcelable\1.2.1\unpacked-versionedparcelable-1.2.1\jars\classes.zip
+c:\android\tools\..\extras\b4a_remote\androidx\annotation\annotation-experimental\1.5.0\unpacked-annotation-experimental-1.5.0\jars\classes.zip
+c:\android\tools\..\extras\b4a_remote\androidx\lifecycle\lifecycle-runtime-android\2.9.1\unpacked-lifecycle-runtime-android-2.9.1\jars\classes.zip
+c:\android\tools\..\extras\b4a_remote\androidx\core\core-viewtree\1.0.0\unpacked-core-viewtree-1.0.0\jars\classes.zip
+c:\android\tools\..\extras\b4a_remote\androidx\window\window-java\1.5.1\unpacked-window-java-1.5.1\jars\classes.zip
+c:\android\tools\..\extras\b4a_remote\androidx\window\window\1.5.1\unpacked-window-1.5.1\jars\classes.zip
+c:\android\tools\..\extras\b4a_remote\androidx\multidex\multidex\2.0.1\unpacked-multidex-2.0.1\jars\classes.zip
+C:\android\tools\..\extras\b4a_local\unpacked-core-63888276286000\dex_v1\core.zip
+C:\android\tools\..\extras\b4a_local\unpacked-dateutils-63888276286000\dex_v1\dateutils.zip
+C:\android\tools\..\extras\b4a_local\unpacked-gps-63888276286000\dex_v1\gps.zip
+C:\android\tools\..\extras\b4a_local\unpacked-ime-63888276286000\dex_v1\ime.zip
+C:\android\tools\..\extras\b4a_local\unpacked-javaobject-63888276286000\dex_v1\javaobject.zip
+C:\android\tools\..\extras\b4a_local\unpacked-json-63888276286000\dex_v1\json.zip
+C:\android\tools\..\extras\b4a_local\unpacked-okhttp-63888276286000\dex_v1\okhttp.zip
+C:\android\tools\..\extras\b4a_local\unpacked-phone-63888276288000\dex_v1\phone.zip
+C:\android\tools\..\extras\b4a_local\unpacked-runtimepermissions.androidx-63888276288000\dex_v1\runtimepermissions.zip
+C:\android\tools\..\extras\b4a_local\unpacked-audio-63888276286000\dex_v1\audio.zip
+C:\android\tools\..\extras\b4a_local\unpacked-okhttp-4.9.0-63888276286000\dex_v1\okhttp-4.9.0.zip
+C:\android\tools\..\extras\b4a_local\unpacked-okio-2.8.0-63888276286000\dex_v1\okio-2.8.0.zip
+C:\android\tools\..\extras\b4a_local\unpacked-okhttp-urlconnection-4.9.3-63888276286000\dex_v1\okhttp-urlconnection-4.9.3.zip
+C:\android\tools\..\extras\b4a_local\unpacked-org.jetbrains.kotlin-kotlin-stdlib-63888276286000\dex_v1\org.jetbrains.kotlin-kotlin-stdlib.zip
+C:\android\tools\..\extras\b4a_local\unpacked-xui-63888276288000\dex_v1\xui.zip
+C:\android\tools\..\extras\b4a_local\unpacked-stringutils-63888276288000\dex_v1\stringutils.zip
+C:\android\tools\..\extras\b4a_local\unpacked-bitmapcreator-63888276286000\dex_v1\bitmapcreator.zip
+C:\android\tools\..\extras\b4a_local\unpacked-xcustomlistview-63888276288000\dex_v1\xcustomlistview.zip
+C:\android\tools\..\extras\b4a_local\unpacked-remotelogger-63888276288000\dex_v1\remotelogger.zip
+c:\android\tools\..\extras\b4a_remote\androidx\annotation\annotation\1.9.1\annotation-1.9.1.zip
+c:\android\tools\..\extras\b4a_remote\androidx\annotation\annotation-jvm\1.9.1\annotation-jvm-1.9.1.zip
+C:\android\tools\..\extras\b4a_local\unpacked-org.jetbrains.kotlinx-kotlinx-coroutines-android-63888276286000\dex_v1\org.jetbrains.kotlinx-kotlinx-coroutines-android.zip
+c:\android\tools\..\extras\b4a_remote\androidx\lifecycle\lifecycle-common\2.9.1\lifecycle-common-2.9.1.zip
+c:\android\tools\..\extras\b4a_remote\androidx\lifecycle\lifecycle-common-jvm\2.9.1\lifecycle-common-jvm-2.9.1.zip
+C:\android\tools\..\extras\b4a_local\unpacked-org.jetbrains.kotlinx-kotlinx-coroutines-core-jvm-63888276286000\dex_v1\org.jetbrains.kotlinx-kotlinx-coroutines-core-jvm.zip
+c:\android\tools\..\extras\b4a_remote\androidx\arch\core\core-common\2.2.0\core-common-2.2.0.zip
+c:\android\tools\..\extras\b4a_remote\androidx\collection\collection\1.5.0\collection-1.5.0.zip
+c:\android\tools\..\extras\b4a_remote\androidx\collection\collection-jvm\1.5.0\collection-jvm-1.5.0.zip
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\annotation\experimental\R$attr.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\annotation\experimental\R$color.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\annotation\experimental\R$dimen.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\annotation\experimental\R$drawable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\annotation\experimental\R$id.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\annotation\experimental\R$integer.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\annotation\experimental\R$layout.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\annotation\experimental\R$string.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\annotation\experimental\R$style.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\annotation\experimental\R$styleable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\annotation\experimental\R.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\R$attr.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\R$color.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\R$dimen.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\R$drawable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\R$id.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\R$integer.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\R$layout.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\R$string.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\R$style.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\R$styleable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\R.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\viewtree\R$attr.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\viewtree\R$color.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\viewtree\R$dimen.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\viewtree\R$drawable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\viewtree\R$id.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\viewtree\R$integer.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\viewtree\R$layout.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\viewtree\R$string.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\viewtree\R$style.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\viewtree\R$styleable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\core\viewtree\R.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\lifecycle\runtime\R$attr.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\lifecycle\runtime\R$color.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\lifecycle\runtime\R$dimen.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\lifecycle\runtime\R$drawable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\lifecycle\runtime\R$id.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\lifecycle\runtime\R$integer.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\lifecycle\runtime\R$layout.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\lifecycle\runtime\R$string.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\lifecycle\runtime\R$style.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\lifecycle\runtime\R$styleable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\lifecycle\runtime\R.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\versionedparcelable\R$attr.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\versionedparcelable\R$color.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\versionedparcelable\R$dimen.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\versionedparcelable\R$drawable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\versionedparcelable\R$id.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\versionedparcelable\R$integer.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\versionedparcelable\R$layout.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\versionedparcelable\R$string.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\versionedparcelable\R$style.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\versionedparcelable\R$styleable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\versionedparcelable\R.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\R$attr.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\R$color.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\R$dimen.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\R$drawable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\R$id.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\R$integer.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\R$layout.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\R$string.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\R$style.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\R$styleable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\R.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\java\R$attr.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\java\R$color.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\java\R$dimen.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\java\R$drawable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\java\R$id.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\java\R$integer.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\java\R$layout.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\java\R$string.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\java\R$style.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\java\R$styleable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\androidx\window\java\R.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\animatedcounter.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\anotherprogressbar$ResumableSub_BusyLoop.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\anotherprogressbar.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\appointmentpage$1.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\appointmentpage$ResumableSub_AlarmTimer_Tick.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\appointmentpage$ResumableSub_BookAppointment.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\appointmentpage$ResumableSub_btnBookSlot_Click.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\appointmentpage$ResumableSub_BuildUI.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\appointmentpage$ResumableSub_lblBookedPhone_Click.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\appointmentpage$ResumableSub_lblDelete_Click.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\appointmentpage$ResumableSub_PromptForDetailsAndBook.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\appointmentpage.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xbitset.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xbreadcrumb.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xbytesbuilder.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xcache$_b4xcacheitem.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xcache.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xcollections.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xcolortemplate$ResumableSub_Show.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xcolortemplate$_colorpickerpart.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xcolortemplate.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xcombobox$ResumableSub_RaiseEvent.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xcombobox.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xcomparatorsort.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xdatetemplate$ResumableSub_Show.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xdatetemplate.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xdialog$ResumableSub_Show.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xdialog$ResumableSub_ShowCustom.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xdialog$ResumableSub_ShowTemplate.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xdialog.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xfloattextfield$ResumableSub_SwitchFromPasswordToRegular.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xfloattextfield.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xformatter$_b4xformatdata.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xformatter.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4ximageview.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xinputtemplate$ResumableSub_Show.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xinputtemplate.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xlisttemplate$ResumableSub_Show.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xlisttemplate.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xloadingindicator$ResumableSub_MainLoop.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xloadingindicator.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xlongtexttemplate.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$FoldableListener$1.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$FoldableListener$MainThreadExecutor.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$FoldableListener.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$ResumableSub_btnCloseout_LongClick.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$ResumableSub_btnPlayVM_Click.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$ResumableSub_CheckAndRequestSystemPermissions.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$ResumableSub_CheckDuplicateField.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$ResumableSub_CheckTrafficCop.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$ResumableSub_CloseOut_Finished.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$ResumableSub_lblArrival_Click.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$ResumableSub_lblDashPhone_Click.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$ResumableSub_ShowFuzzyOptions.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$ResumableSub_ShowUserSelection.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage$ResumableSub_StartScrapeProcess.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xmainpage.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xorderedmap.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xpages.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xpagesdelegator.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xpagesmanager$PagesMenuListener.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xpagesmanager$ResumableSub_HandleCloseRequest.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xpagesmanager$_b4amenuitem.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xpagesmanager$_b4xpageinfo.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xpagesmanager$_b4xpageparent.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xpagesmanager.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xplusminus$ResumableSub_StartDownLoop.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xplusminus.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xprogressdialog.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xradiobutton$ResumableSub_SetValueImpl.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xradiobutton.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xsearchtemplate$ResumableSub_Show.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xsearchtemplate.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xseekbar.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xset.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xsignaturetemplate.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xswitch$ResumableSub_SetValueImpl.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xswitch.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xtimedtemplate$ResumableSub_Show.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\b4xtimedtemplate.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\closeout.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\copyonwritelist.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\copyonwritemap.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\createclientpage$ResumableSub_B4XPage_Appear.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\createclientpage$ResumableSub_btnGetNumber_Click.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\createclientpage$ResumableSub_HandleDuplicateCheck.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\createclientpage$ResumableSub_ProceedAfterSave.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\createclientpage$ResumableSub_txtPhone_LongClick.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\createclientpage.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\googleoauth2$ResumableSub_GetTokenFromCode.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\googleoauth2$ResumableSub_RefreshToken.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\googleoauth2.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\httpjob$_multipartfiledata.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\httpjob.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\httputils2service.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\madewithlove.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\main$1.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\main$B4AMenuItemsClickListener.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\main$HandleKeyDelayed.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\main$ResumeMessage.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\main$WaitForLayout.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\main.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\R$attr.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\R$color.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\R$dimen.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\R$drawable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\R$id.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\R$integer.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\R$layout.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\R$string.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\R$style.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\R$styleable.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\R.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\roundslider.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\scrollinglabel$ResumableSub_StartScrolling.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\scrollinglabel.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\searchpage$ResumableSub_lblPhone_Click.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\searchpage$ResumableSub_lblServiceNotes_Click.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\searchpage.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\starter$1.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\starter$2.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\starter$starter_BR.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\starter.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\swiftbutton.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\viewschedulepage$1.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\viewschedulepage$ResumableSub_BuildUI.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\viewschedulepage.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\xuiviewsutils.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\designerscripts\LS_mainpage.dex
+C:\My Projects\Geek God CRM\B4A\Objects\dexed\Geek\God\CRM\App\designerscripts\LS_searchtemplate.dex
