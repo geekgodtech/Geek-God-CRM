@@ -634,20 +634,8 @@ Private Sub SetupFontSystem
 		End If
 	Next
 	
-	' 3. Deploy Numbered Fonts (1.ttf to 50.ttf) to Pool
-	For i = 1 To 50
-		Dim f As String = i & ".ttf"
-		If File.Exists(File.DirAssets, f) Then
-			If File.Exists(PoolDir, f) = False Then
-				Try
-					File.Copy(File.DirAssets, f, PoolDir, f)
-					Log(">>> [FONTS] Deployed Pool Font: " & f)
-				Catch
-					Log(">>> [FONTS] Error Deploying Pool " & f & ": " & LastException)
-				End Try
-			End If
-		End If
-	Next
+	' 3. Deploy Numbered Fonts (supports both 1.ttf and 01.ttf style names)
+	DeploySequentialPoolFonts(PoolDir)
 
 	' 4. Load Fonts into Variables (Reading from the Storage Folder we just prep'd)
 	fontLabels = LoadFontFromFile(FontsDir, "mainpage - labels.ttf")
@@ -656,6 +644,43 @@ Private Sub SetupFontSystem
 	fontCardText = LoadFontFromFile(FontsDir, "mainpage - cardtext.ttf")
 
 	ApplyFontsToUI
+End Sub
+
+Private Sub DeploySequentialPoolFonts(PoolDir As String)
+	Try
+		Dim Copied As Int = 0
+		' Project currently ships a sequential pool of 33 fonts.
+		For i = 1 To 33
+			Dim BaseNum As String
+			If i < 10 Then
+				BaseNum = "0" & i
+			Else
+				BaseNum = i
+			End If
+			Dim fPadded As String = BaseNum & ".ttf"
+			Dim fPlain As String = i & ".ttf"
+			Dim SourceName As String = ""
+			
+			If File.Exists(File.DirAssets, fPadded) Then
+				SourceName = fPadded
+			Else If File.Exists(File.DirAssets, fPlain) Then
+				SourceName = fPlain
+			End If
+			
+			If SourceName <> "" And File.Exists(PoolDir, SourceName) = False Then
+				Try
+					File.Copy(File.DirAssets, SourceName, PoolDir, SourceName)
+					Copied = Copied + 1
+					Log(">>> [FONTS] Deployed Pool Font: " & SourceName)
+				Catch
+					Log(">>> [FONTS] Error Deploying Pool " & SourceName & ": " & LastException)
+				End Try
+			End If
+		Next
+		Log(">>> [FONTS] Pool deployment complete. New files copied: " & Copied)
+	Catch
+		Log(">>> [FONTS] Error deploying sequential pool fonts: " & LastException)
+	End Try
 End Sub
 
 Private Sub ApplyFontsToUI
@@ -996,7 +1021,8 @@ End Sub
 
 Private Sub B4XPage_Disappear
 	StopGestures ' [GESTURE] Stop listening to save battery
-	StopFoldListener ' [FOLD] Stop listening to prevent leaks
+	' Keep fold listener alive globally so fold-state updates continue on all pages.
+	' Stopping here prevents non-main pages from receiving fresh fold transitions.
 	Log("B4XMainPage disappeared")
 End Sub
 
@@ -1253,6 +1279,25 @@ Private Sub CheckAndRequestSystemPermissions
 		Next
 		Wait For B4XPage_PermissionResult (Permission As String, Result As Boolean)
 	End If
+
+	' Request "All Files Access" during first-run permission flow instead of waiting for scraper launch.
+	' Only auto-launch once during onboarding to avoid repeatedly forcing Settings on every startup.
+	If HasAllFilesAccess = False Then
+		Dim Prompted As Boolean = False
+		Dim PromptedRaw As Object = appSettings.GetDefault("AllFilesAccessPrompted", False)
+		If PromptedRaw Is Boolean Then
+			Prompted = PromptedRaw
+		Else If PromptedRaw Is String Then
+			Prompted = (PromptedRaw = "True")
+		End If
+		
+		If Prompted = False Then
+			RequestManageExternalStorage
+			appSettings.Put("AllFilesAccessPrompted", True)
+			File.WriteMap(File.DirInternal, "settings.map", appSettings)
+		End If
+	End If
+
 	If rp.Check(rp.PERMISSION_ACCESS_FINE_LOCATION) Then gps.Start(0, 0)
 	SetupFontSystem
 End Sub
